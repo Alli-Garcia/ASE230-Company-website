@@ -13,6 +13,6 @@ function testReadFile()
 {
     $expected = "This is a plain text file.";
     $actual = read_file("test.txt");
-    $this->assertEquals($expected, $actual);
+    assert($expected === $actual);
 }
 ?>
