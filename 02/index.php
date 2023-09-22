@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -93,12 +92,13 @@
                                 class="mdi mdi-play text-center"></i></a></p>
 
                     <!-- Modal -->
-                    <div class="modal fade" id="watchvideomodal"  tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="watchvideomodal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered modal-lg">
                             <div class="modal-content">
                                 <div class="modal-body p-0" style="margin-bottom: -8px;">
-                                    <video id="VisaChipCardVideo" class="video-box" controls  width="800" >
-                                        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" >
+                                    <video id="VisaChipCardVideo" class="video-box" controls width="800">
+                                        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
                                         <!--Browser does not support <video> tag -->
                                     </video>
                                 </div>
@@ -748,7 +748,7 @@
                     <div class="float-sm-start pull-none">
                         <p class="copy-rights  mb-3 mb-sm-0">
                             <script>
-                                document.write(new Date().getFullYear())
+                            document.write(new Date().getFullYear())
                             </script> © Hiric - Themesbrand
                         </p>
                     </div>
