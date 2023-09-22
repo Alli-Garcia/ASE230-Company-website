@@ -613,6 +613,15 @@
     <!-- END BLOG -->
 
     <!-- CONTACT FORM START-->
+    <?php
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $name = $_POST['name'];
+        $email = $_POST['email'];
+        $subject = $_POST['subject'];
+        $comments = $_POST['comments'];
+    }
+    ?>
+
     <section class="section " id="contact">
         <div class="container">
             <div class="row">
@@ -748,7 +757,7 @@
                     <div class="float-sm-start pull-none">
                         <p class="copy-rights  mb-3 mb-sm-0">
                             <script>
-                            document.write(new Date().getFullYear())
+                                document.write(new Date().getFullYear())
                             </script> © Hiric - Themesbrand
                         </p>
                     </div>
