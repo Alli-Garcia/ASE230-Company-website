@@ -30,7 +30,7 @@
         <div class="container">
             <!-- LOGO -->
             <a class="navbar-brand logo text-uppercase" href="index.php">
-                <i class="mdi mdi-alien"></i>Hiric
+                <i class="mdi mdi-alien"></i> NaturaTech
             </a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
@@ -53,9 +53,6 @@
                         <a data-scroll href="#about" class="nav-link">About</a>
                     </li>
                     <li class="nav-item">
-                        <a data-scroll href="#pricing" class="nav-link">Pricing</a>
-                    </li>
-                    <li class="nav-item">
                         <a data-scroll href="#blog" class="nav-link">Blog</a>
                     </li>
                     <li class="nav-item">
@@ -67,8 +64,8 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li>
                             <button type="button"
-                                class="btn btn-primary navbar-btn btn-rounded waves-effect waves-light">Try it
-                                Free</button>
+                                class="btn btn-primary navbar-btn btn-rounded waves-effect waves-light">Learn
+                                More</button>
                         </li>
                     </ul>
                 </div>
@@ -92,22 +89,9 @@
                             href="javascript: void(0);" class="play-btn video-play-icon"><i
                                 class="mdi mdi-play text-center"></i></a></p>
 
-                    <!-- Modal -->
-                    <div class="modal fade" id="watchvideomodal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                        aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered modal-lg">
-                            <div class="modal-content">
-                                <div class="modal-body p-0" style="margin-bottom: -8px;">
-                                    <video id="VisaChipCardVideo" class="video-box" controls width="800">
-                                        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
-                                        <!--Browser does not support <video> tag -->
-                                    </video>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
+        </div>
         </div>
     </section>
     <!--END HOME-->
@@ -710,7 +694,7 @@
                     <div class="float-sm-start pull-none">
                         <p class="copy-rights  mb-3 mb-sm-0">
                             <script>
-                                document.write(new Date().getFullYear())
+                            document.write(new Date().getFullYear())
                             </script> © Hiric - Themesbrand
                         </p>
                     </div>
