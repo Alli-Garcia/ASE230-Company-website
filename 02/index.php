@@ -289,7 +289,7 @@
                     </div>
                 </div>
     </section>
-    <!--START SERVICES-->
+    <!--END SERVICES-->
 
     <!--START WEBSITE-DESCRIPTION-->
     <section class="section bg-web-desc">
@@ -330,8 +330,12 @@
                                 <img alt="" src="images/team/img-1.jpg" class="img-fluid rounded">
                             </div>
                         </div>
-                        <h4 class="team-name">Frank Johnson</h4>
-                        <p class="text-uppercase team-designation">CEO</p>
+                        <h4 class="team-name">Dr. Marcus Greene </h4>
+                        <p class="text-uppercase team-designation">Founder & CEO</p>
+                        <p class="text-information">Holding a Ph.D. in Environmental Science from Stanford, Dr. Greene
+                            has always been
+                            a passionate advocate for eco-conscious innovations.
+                            His visionary leadership is the bedrock on which NaturaTech stands.</p>
                     </div>
                 </div>
 
@@ -342,8 +346,11 @@
                                 <img alt="" src="images/team/img-2.jpg" class="img-fluid rounded">
                             </div>
                         </div>
-                        <h4 class="team-name">Elaine Stclair</h4>
-                        <p class="text-uppercase team-designation">Designer</p>
+                        <h4 class="team-name">Aisha Kwon</h4>
+                        <p class="text-uppercase team-designation">Chief of Design</p>
+                        <p class="text-information">With her background in bio-engineering, is the mastermind behind
+                            the cutting-edge technologies at NaturaTech.
+                            She believes in harnessing nature's wisdom to address modern challenges.</p>
                     </div>
                 </div>
 
@@ -354,8 +361,11 @@
                                 <img alt="" src="images/team/img-3.jpg" class="img-fluid rounded">
                             </div>
                         </div>
-                        <h4 class="team-name">Wanda Arthur</h4>
+                        <h4 class="team-name">Carlos Mendoza </h4>
                         <p class="text-uppercase team-designation">Developer</p>
+                        <p class="text-information">Carlos, an alumnus of Design Academy Eindhoven, combines minimalism
+                            with bio-inspired designs,
+                            making NaturaTech's products not only functional but also aesthetically appealing.</p>
                     </div>
                 </div>
 
@@ -366,8 +376,26 @@
                                 <img alt="" src="images/team/img-4.jpg" class="img-fluid rounded">
                             </div>
                         </div>
-                        <h4 class="team-name">Joshua Stemple</h4>
-                        <p class="text-uppercase team-designation">Manager</p>
+                        <h4 class="team-name">Lydia D'souza</h4>
+                        <p class="text-uppercase team-designation">VP of Operations</p>
+                        <p class="text-information">Lydia's expertise lies in sustainable supply chains. She ensures
+                            that every step in NaturaTech's
+                            operations is ethical, green, and efficient.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-sm-6">
+                    <div class="team-box text-center">
+                        <div class="team-wrapper">
+                            <div class="team-member">
+                                <img alt="" src="images/team/img-5.jpg" class="img-fluid rounded">
+                            </div>
+                        </div>
+                        <h4 class="team-name">Jamal Ahmed </h4>
+                        <p class="text-uppercase team-designation">Head of EcoLearn Hub</p>
+                        <p class="text-information">As former environmental studies professor from Yale, he curates and
+                            oversees the rich tapestry of courses offered by EcoLearn, spreading eco-awareness across
+                            the globe.</p>
                     </div>
                 </div>
 
@@ -746,7 +774,7 @@
                     <div class="float-sm-start pull-none">
                         <p class="copy-rights  mb-3 mb-sm-0">
                             <script>
-                            document.write(new Date().getFullYear())
+                                document.write(new Date().getFullYear())
                             </script> © Hiric - Themesbrand
                         </p>
                     </div>
