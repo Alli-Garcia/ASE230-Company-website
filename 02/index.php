@@ -327,7 +327,7 @@
                     <div class="team-box text-center">
                         <div class="team-wrapper">
                             <div class="team-member">
-                                <img alt="" src="images/team/img-1.jpg" class="img-fluid rounded">
+                                <img alt="" src="images/team/Greene.jpg" class="img-fluid rounded">
                             </div>
                         </div>
                         <h4 class="team-name">Dr. Marcus Greene </h4>
@@ -343,7 +343,7 @@
                     <div class="team-box text-center">
                         <div class="team-wrapper">
                             <div class="team-member">
-                                <img alt="" src="images/team/img-2.jpg" class="img-fluid rounded">
+                                <img alt="" src="images/team/Kwon.jpg" class="img-fluid rounded">
                             </div>
                         </div>
                         <h4 class="team-name">Aisha Kwon</h4>
@@ -358,7 +358,7 @@
                     <div class="team-box text-center">
                         <div class="team-wrapper">
                             <div class="team-member">
-                                <img alt="" src="images/team/img-3.jpg" class="img-fluid rounded">
+                                <img alt="" src="images/team/Mendoza.jpg" class="img-fluid rounded">
                             </div>
                         </div>
                         <h4 class="team-name">Carlos Mendoza </h4>
@@ -373,7 +373,7 @@
                     <div class="team-box text-center">
                         <div class="team-wrapper">
                             <div class="team-member">
-                                <img alt="" src="images/team/img-4.jpg" class="img-fluid rounded">
+                                <img alt="" src="images/team/D'souza.jpg" class="img-fluid rounded">
                             </div>
                         </div>
                         <h4 class="team-name">Lydia D'souza</h4>
@@ -388,7 +388,7 @@
                     <div class="team-box text-center">
                         <div class="team-wrapper">
                             <div class="team-member">
-                                <img alt="" src="images/team/img-5.jpg" class="img-fluid rounded">
+                                <img alt="" src="images/team/Ahmed.jpg" class="img-fluid rounded">
                             </div>
                         </div>
                         <h4 class="team-name">Jamal Ahmed </h4>
