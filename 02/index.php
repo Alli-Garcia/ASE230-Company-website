@@ -199,6 +199,16 @@
                             <div class="ms-4">
                                 <h4>' . $productsAndServices[$i]['name'] . '</h4>
                                 <p class="pt-2 text-muted">' . $productsAndServices[$i]['description'] . '</p>
+                                <h5>Applications</h5>
+                                <ul>';
+                                    for($j = 0; $j < count($productsAndServices[$i]['applications']); $j++)
+                                    {
+                                        echo '<li>
+                                        <h5>' . $productsAndServices[$i]['applications'][$j]['name'] . '</h5>
+                                        <p>' . $productsAndServices[$i]['applications'][$j]['description'] . '</p>
+                                    </li>';
+                                    }
+                                echo '</ul>
                             </div>
                         </div>
                     </div>
