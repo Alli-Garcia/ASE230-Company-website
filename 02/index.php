@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -48,7 +47,7 @@
                         <a data-scroll href="#features" class="nav-link">Features</a>
                     </li>
                     <li class="nav-item">
-                        <a data-scroll href="#services" class="nav-link">Services</a>
+                        <a data-scroll href="#services" class="nav-link">Products & Services</a>
                     </li>
                     <li class="nav-item">
                         <a data-scroll href="#about" class="nav-link">About</a>
@@ -176,14 +175,38 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 offset-lg-2">
-                    <h1 class="section-title text-center">Our Services</h1>
+                    <h1 class="section-title text-center">Our Products & Services</h1>
                     <div class="section-title-border mt-3"></div>
                     <p class="section-subtitle text-muted text-center pt-4 font-secondary">We craft digital, graphic and
                         dimensional thinking, to create category leading brand experiences that have meaning and add a
                         value for our clients.</p>
                 </div>
             </div>
-            <div class="row mt-5">
+            <?php
+            require('lib/json.php');
+            $productsAndServices = readJsonFile('data/products-and-services.json');
+            
+            for($i = 0; $i < count($productsAndServices); $i++)
+            {
+                if (floor($i / 3) == $i / 3)
+                {
+                    echo '<div class="row">';
+                }
+                echo '<div class="col-lg-4 mt-4">
+                    <div class="services-box">
+                        <div class="d-flex">
+                            <i class="pe-7s-science text-primary"></i>
+                            <div class="ms-4">
+                                <h4>' . $productsAndServices[$i]['name'] . '</h4>
+                                <p class="pt-2 text-muted">' . $productsAndServices[$i]['description'] . '</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>';
+            }
+            ?>
+
+            <!-- <div class="row mt-5">
                 <div class="col-lg-4 mt-4">
                     <div class="services-box">
                         <div class="d-flex">
@@ -297,7 +320,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </section>
     <!--START SERVICES-->
