@@ -92,12 +92,13 @@
                                 class="mdi mdi-play text-center"></i></a></p>
 
                     <!-- Modal -->
-                    <div class="modal fade" id="watchvideomodal"  tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="watchvideomodal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered modal-lg">
                             <div class="modal-content">
                                 <div class="modal-body p-0" style="margin-bottom: -8px;">
-                                    <video id="VisaChipCardVideo" class="video-box" controls  width="800" >
-                                        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" >
+                                    <video id="VisaChipCardVideo" class="video-box" controls width="800">
+                                        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
                                         <!--Browser does not support <video> tag -->
                                     </video>
                                 </div>
@@ -185,11 +186,9 @@
             <?php
             require('lib/json.php');
             $productsAndServices = readJsonFile('data/products-and-services.json');
-            
-            for($i = 0; $i < count($productsAndServices); $i++)
-            {
-                if (floor($i / 3) == $i / 3)
-                {
+
+            for ($i = 0; $i < count($productsAndServices); $i++) {
+                if (floor($i / 3) == $i / 3) {
                     echo '<div class="row">';
                 }
                 echo '<div class="col-lg-4 mt-4">
@@ -201,14 +200,13 @@
                                 <p class="pt-2 text-muted">' . $productsAndServices[$i]['description'] . '</p>
                                 <h5>Applications</h5>
                                 <ul>';
-                                    for($j = 0; $j < count($productsAndServices[$i]['applications']); $j++)
-                                    {
-                                        echo '<li>
+                for ($j = 0; $j < count($productsAndServices[$i]['applications']); $j++) {
+                    echo '<li>
                                         <h5>' . $productsAndServices[$i]['applications'][$j]['name'] . '</h5>
                                         <p>' . $productsAndServices[$i]['applications'][$j]['description'] . '</p>
                                     </li>';
-                                    }
-                                echo '</ul>
+                }
+                echo '</ul>
                             </div>
                         </div>
                     </div>
