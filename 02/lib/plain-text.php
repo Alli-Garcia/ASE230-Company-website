@@ -1,15 +1,26 @@
 <?php
-// Define the path to the data file
-$dataFilePath = '../data/test.txt';
+function readTextFile() {
+    // Define the path to the data file
+    $dataFilePath = '../data/test.txt';
 
-// Check if the data file exists
-if (file_exists($dataFilePath)) {
-    // Read the content of the data file
-    $data = file_get_contents($dataFilePath);
+    // Initialize an empty string to store the content
+    $data = '';
 
-    // Display the data
-    echo "<pre>" . $data . "</pre>";
-} else {
-    echo "Data file not found.";
+    // Check if the data file exists
+    if (file_exists($dataFilePath)) {
+        // Read the content of the data file
+        $data = file_get_contents($dataFilePath);
+    } else {
+        $data = "Data file not found.";
+    }
+
+    // Return the content
+    return $data;
 }
+
+// Call the function to get the content
+$textContent = readTextFile();
+
+
+echo "<pre>" . $textContent . "</pre>";
 ?>
