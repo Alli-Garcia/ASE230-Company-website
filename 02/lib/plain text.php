@@ -8,8 +8,11 @@ function read_file($file)
 
 function testReadFile()
 {
-    $expected = "Overview:\nNaturaTech Solutions Inc., established in 2019, is an eco-tech enterprise headquartered amidst the greenery of Portland, Oregon. Embracing the philosophy of \"Progress in Harmony,\" the company strives to produce technology that integrates seamlessly with nature, aiming to restore environmental balance and promote sustainable living.\nMission Statement:\n\"To bridge the chasm between technology and nature, weaving them together to pioneer solutions that nurture the Earth and advance humanity.\"";
-
+    $expected = "Overview:
+NaturaTech Solutions Inc., established in 2019, is an eco-tech enterprise headquartered amidst the greenery of Portland, Oregon. Embracing the philosophy of \"Progress in Harmony,\" the company strives to produce technology that integrates seamlessly with nature, aiming to restore environmental balance and promote sustainable living.
+Mission Statement:
+\"To bridge the chasm between technology and nature, weaving them together to pioneer solutions that nurture the Earth and advance humanity.\"";
+    
     $actual = read_file("test.txt");
 
     // Compare the expected and actual content
