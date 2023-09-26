@@ -11,7 +11,7 @@ function read_file($file)
 
 function testReadFile()
 {
-    $expected = "This is a plain text file.";
+    //$expected = "This is a plain text file.";
     $actual = read_file("test.txt");
     assert($expected === $actual);
 }
