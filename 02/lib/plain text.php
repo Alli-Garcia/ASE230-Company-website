@@ -13,6 +13,11 @@ NaturaTech Solutions Inc., established in 2019, is an eco-tech enterprise headqu
 Mission Statement:
 \"To bridge the chasm between technology and nature, weaving them together to pioneer solutions that nurture the Earth and advance humanity.\"";
     
+    $actual = trim(read_file("test.txt"));
+
+    // Trim the expected string
+    $expected = trim($expected);
+
     $actual = read_file("test.txt");
 
     // Compare the expected and actual content
