@@ -1,6 +1,6 @@
 <?php
 // Define the path to the data file
-$dataFilePath = '../data/data.txt';
+$dataFilePath = '../data/test.txt';
 
 // Check if the data file exists
 if (file_exists($dataFilePath)) {
