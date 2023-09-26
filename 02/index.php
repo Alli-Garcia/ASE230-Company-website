@@ -56,7 +56,7 @@ echo <<<'HTML'
                         <a data-scroll href="#features" class="nav-link">Features</a>
                     </li>
                     <li class="nav-item">
-                        <a data-scroll href="#services" class="nav-link">Services</a>
+                        <a data-scroll href="#services" class="nav-link">Products & Services</a>
                     </li>
                     <li class="nav-item">
                         <a data-scroll href="#about" class="nav-link">About</a>
@@ -231,6 +231,15 @@ echo <<<'HTML'
             </div>
             <div class="row">
                 <div class="col-lg-4 mt-4">
+            <?php
+            require('lib/json.php');
+            $productsAndServices = readJsonFile('data/products-and-services.json');
+
+            for ($i = 0; $i < count($productsAndServices); $i++) {
+                if (floor($i / 3) == $i / 3) {
+                    echo '<div class="row">';
+                }
+                echo '<div class="col-lg-4 mt-4">
                     <div class="services-box">
                         <div class="d-flex">
                             <i class="pe-7s-science text-primary"></i>
@@ -306,6 +315,23 @@ echo <<<'HTML'
                     </div>
                 </div>
             </div>
+                                <h4>' . $productsAndServices[$i]['name'] . '</h4>
+                                <p class="pt-2 text-muted">' . $productsAndServices[$i]['description'] . '</p>
+                                <h5>Applications</h5>
+                                <ul>';
+                for ($j = 0; $j < count($productsAndServices[$i]['applications']); $j++) {
+                    echo '<li>
+                                        <h5>' . $productsAndServices[$i]['applications'][$j]['name'] . '</h5>
+                                        <p>' . $productsAndServices[$i]['applications'][$j]['description'] . '</p>
+                                    </li>';
+                }
+                echo '</ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>';
+            }
+            ?>
         </div>
     </section>
     <!--START SERVICES-->
