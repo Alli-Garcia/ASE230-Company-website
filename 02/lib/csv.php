@@ -28,7 +28,7 @@ $teamMembersData = readCSV($teamMembersFile, "team");
 
 // Now, $achievementsData contains the achievements CSV data, and $teamMembersData contains the team members CSV data.
 ?>
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -65,4 +65,4 @@ $teamMembersData = readCSV($teamMembersFile, "team");
         <?php endforeach; ?>
     </table>
 </body>
-</html>
+</html>-->
