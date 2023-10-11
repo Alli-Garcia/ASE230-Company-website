@@ -1,4 +1,11 @@
 <?php
+function getContacts() {
+    // Implementation to retrieve contacts
+    // ...
+
+    return $contacts;
+}
+
 // Function to get a specific contact by name
 function getContactByName($name) {
     $contacts = getContacts();
