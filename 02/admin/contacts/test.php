@@ -1,5 +1,5 @@
 <?php
-include_once '02\admin\contacts\contacts.php';
+include_once '02/admin/contacts/contacts.php';
 
 // Test getContacts function
 $allContacts = getContacts();
