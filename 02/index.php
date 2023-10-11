@@ -1,4 +1,9 @@
 <?php
+//Include the contacts.php function
+include('admin/contacts/contacts.php');
+
+$contacts = getContacts();
+
 // Include the plain-text.php function
 include('lib/plain-text.php');
 
