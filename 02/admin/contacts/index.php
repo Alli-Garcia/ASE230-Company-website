@@ -1,6 +1,6 @@
 <?php
 // Include the contacts.php file
-include_once 'contacts.php';
+include_once '.../02/admin/contacts/contacts.php';
 
 // Retrieve all contact requests
 $contactRequests = getContactRequests();
