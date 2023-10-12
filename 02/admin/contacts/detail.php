@@ -1,6 +1,6 @@
 <?php
 // Include the contacts.php file
-include_once 'contacts.php';
+include_once '.../.../contacts/contacts.php';
 
 // Check if ID is provided in the URL
 if (isset($_GET['id'])) {

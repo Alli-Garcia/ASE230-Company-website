@@ -1,6 +1,6 @@
 <?php
 // Include the contacts.php file
-include_once '../../contacts/contacts.php';
+include_once 'nku/ASE230-Company-website/02/admin/contacts/contacts.php';
 
 // Retrieve all contact requests
 $contactRequests = getContactRequests();
@@ -18,7 +18,7 @@ $contactRequests = getContactRequests();
 
     <h1>Contact Requests</h1>
 
-    <table border="1">
+    <table>
         <tr>
             <th>ID</th>
             <th>Name</th>
