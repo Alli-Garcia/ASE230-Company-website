@@ -1,6 +1,6 @@
 <?php
 // Include the contacts.php file
-include_once 'nku/ASE230-Company-website/02/admin/contacts/contacts.php';
+include_once 'contacts.php';
 
 // Retrieve all contact requests
 $contactRequests = getContactRequests();
