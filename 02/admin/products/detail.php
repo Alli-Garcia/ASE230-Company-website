@@ -27,6 +27,9 @@ $product = $products[$_GET['product']];
 
         ?>
     </ul>
+    <div>
+        <?= '<button class="btn btn-danger" onclick="window.location.href=\'delete.php?product=' . $_GET['product'] . '\'">Delete</button><button class="btn btn-secondary" onclick="window.location.href=\'edit.php?product=' . $_GET['product'] . '\'">Edit</button>' ?>
+    </div>
 </div>
 
 <script src="../../js/bootstrap.bundle.min.js"></script>
