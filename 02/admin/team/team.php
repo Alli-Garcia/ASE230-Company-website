@@ -1,5 +1,5 @@
 <?php
- require 'team.csv';
+ include 'team.csv';
 # Function to retrieve and index all items
 function getTeamMembers()
 {
