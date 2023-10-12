@@ -1,17 +1,18 @@
 <?php
 // Include the contacts.php file
-include_once '.../.../contacts/contacts.php';
+include_once '../../contacts/contacts.php';
 
 // Check if ID is provided in the URL
 if (isset($_GET['id'])) {
     $contactRequestId = $_GET['id'];
 
     // Retrieve the specific contact request by ID
-    $contactRequest = getContactRequestById($contactRequestId);
+    $contactRequest = detail($contactRequestId);
 
     if ($contactRequest) {
-        // Display contact request details
         ?>
+        
+
 
         <!DOCTYPE html>
         <html lang="en">
