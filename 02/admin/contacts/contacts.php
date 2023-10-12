@@ -1,71 +1,47 @@
 <?php
-function getContacts() {
-    // Implementation to retrieve contacts
-    // ...
 
-    return $contacts;
+function index() {
+    $file = '../../data/realtors.json';
+    $data = file_get_contents($file);
+    return json_decode($data, TRUE);
 }
 
-// Function to get a specific contact by name
-function getContactByName($name) {
-    $contacts = getContacts();
-
-    foreach ($contacts as $contact) {
-        if ($contact['name'] == $name) {
-            return $contact;
-        }
-    }
-
-    return null; // Contact not found
+function detail($index) {
+    $file = '../../data/realtors.json';
+    $data = file_get_contents($file);
+    $dataArray = json_decode($data, TRUE);
+    return isset($dataArray[$index]) ? $dataArray[$index] : null;
 }
 
-// Function to update an existing contact by name
-function updateContactByName($name, $updatedContact) {
-    $contacts = getContacts();
-
-    // Find the index of the contact to be updated
-    $index = findContactIndexByName($contacts, $name);
-
-    if ($index !== null) {
-        // Update the contact
-        $contacts[$index] = array_merge($contacts[$index], $updatedContact);
-
-        // Update the JSON file
-        updateJsonFile($contacts);
-        return true;
-    }
-
-    return false; // Contact not found
+function create($product) {
+    $file = '../../data/realtors.json';
+    $data = file_get_contents($file);
+    $dataArray = json_decode($data, TRUE);
+    array_push($dataArray, $product);
+    $data = json_encode($dataArray, JSON_UNESCAPED_UNICODE);
+    file_put_contents($file, $data);
 }
 
-// Function to delete a contact by name
-function deleteContactByName($name) {
-    $contacts = getContacts();
-
-    // Find the index of the contact to be deleted
-    $index = findContactIndexByName($contacts, $name);
-
-    if ($index !== null) {
-        // Remove the contact from the array
-        array_splice($contacts, $index, 1);
-
-        // Update the JSON file
-        updateJsonFile($contacts);
-        return true;
-    }
-
-    return false; // Contact not found
+function edit($index, $product) {
+    $file = '../../data/realtors.json';
+    $data = file_get_contents($file);
+    $dataArray = json_decode($data, TRUE);
+    $dataArray[$index] = $product;
+    $data = json_encode($dataArray, JSON_UNESCAPED_UNICODE);
+    file_put_contents($file, $data);
 }
 
-// Function to find the index of a contact in the array by name
-function findContactIndexByName($contacts, $name) {
-    foreach ($contacts as $index => $contact) {
-        if ($contact['name'] == $name) {
-            return $index;
-        }
+function delete($index) {
+    $file = '../../data/realtors.json';
+    $data = file_get_contents($file);
+    $dataArray = json_decode($data, TRUE);
+    
+    if (isset($dataArray[$index])) {
+        unset($dataArray[$index]);
+        $dataArray = array_values($dataArray); // Reindex the array
+        $data = json_encode($dataArray, JSON_UNESCAPED_UNICODE);
+        file_put_contents($file, $data);
     }
-
-    return null; // Contact not found
 }
 
 ?>

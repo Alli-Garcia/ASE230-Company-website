@@ -1,29 +1,32 @@
 {
-    "realtors": [
+  "realtors": [
       {
-        "name": "John Doe",
-        "email": "john.doe@example.com",
-        "phone": "+1234567890",
-        "bio": "John Doe is an experienced realtor specializing in residential properties. With a passion for helping people find their dream homes, John is committed to providing exceptional service and guidance throughout the home buying process."
+          "id": 1,
+          "name": "John Doe",
+          "email": "john.doe@example.com",
+          "phone": "+1234567890",
+          "bio": "John Doe is an experienced realtor specializing in residential properties. With a passion for helping people find their dream homes, John is committed to providing exceptional service and guidance throughout the home buying process."
       },
       {
-        "name": "Jane Smith",
-        "email": "jane.smith@example.com",
-        "phone": "+1987654321",
-        "bio": "Jane Smith is a dedicated real estate professional with expertise in both residential and commercial properties. Known for her attention to detail and excellent negotiation skills, Jane is determined to assist clients in achieving their real estate goals."
+          "id": 2,
+          "name": "Jane Smith",
+          "email": "jane.smith@example.com",
+          "phone": "+1987654321",
+          "bio": "Jane Smith is a dedicated real estate professional with expertise in both residential and commercial properties. Known for her attention to detail and excellent negotiation skills, Jane is determined to assist clients in achieving their real estate goals."
       },
       {
-        "name": "Mike Johnson",
-        "email": "mike.johnson@example.com",
-        "phone": "+1555333444",
-        "bio": "Mike Johnson is a seasoned realtor specializing in luxury properties. With a deep understanding of the real estate market, Mike is committed to providing personalized service and ensuring a smooth and successful real estate experience for his clients."
+          "id": 3,
+          "name": "Mike Johnson",
+          "email": "mike.johnson@example.com",
+          "phone": "+1555333444",
+          "bio": "Mike Johnson is a seasoned realtor specializing in luxury properties. With a deep understanding of the real estate market, Mike is committed to providing personalized service and ensuring a smooth and successful real estate experience for his clients."
       },
       {
-        "name": "Sara Williams",
-        "email": "sara.williams@example.com",
-        "phone": "+1888222333",
-        "bio": "Sara Williams is a real estate professional with a focus on first-time homebuyers. With a patient and informative approach, Sara guides clients through the intricacies of the home buying process, making it an enjoyable and stress-free experience."
+          "id": 4,
+          "name": "Sara Williams",
+          "email": "sara.williams@example.com",
+          "phone": "+1888222333",
+          "bio": "Sara Williams is a real estate professional with a focus on first-time homebuyers. With a patient and informative approach, Sara guides clients through the intricacies of the home buying process, making it an enjoyable and stress-free experience."
       }
-    ]
-  }
-  
+  ]
+}
