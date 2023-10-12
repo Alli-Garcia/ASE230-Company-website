@@ -5,7 +5,7 @@ function getTeamMembers()
 {
     $teamMembers = [];
     $file = fopen("team.csv", "r");
-    $headers = fgetcsv($file); // Skip the headers
+    $headers = fgetcsv($file); # Skip headers
     while (($data = fgetcsv($file)) !== false) {
         $teamMember = array_combine($headers, $data);
         $teamMembers[] = $teamMember;
@@ -18,7 +18,7 @@ function getTeamMembers()
 function getTeamMember($teamMemberName)
 {
     $file = fopen("team.csv", "r");
-    $headers = fgetcsv($file); // Skip the headers
+    $headers = fgetcsv($file); # Skip headers
     while (($data = fgetcsv($file)) !== false) {
         $teamMember = array_combine($headers, $data);
         if ($teamMember['Name'] == $teamMemberName) {
@@ -42,7 +42,7 @@ function createTeamMember($teamMember)
 function updateTeamMember($teamMemberName, $updatedTeamMember)
 {
     $file = fopen("team.csv", "r+");
-    $headers = fgetcsv($file); // Skip the headers
+    $headers = fgetcsv($file); # Skip headers
     $updated = false;
     $newData = [];
     while (($data = fgetcsv($file)) !== false) {
@@ -70,7 +70,7 @@ function updateTeamMember($teamMemberName, $updatedTeamMember)
 function deleteTeamMember($teamMemberName)
 {
     $file = fopen("team.csv", "r+");
-    $headers = fgetcsv($file); // Skip the headers
+    $headers = fgetcsv($file); # Skip headers
     $deleted = false;
     $newData = [];
     while (($data = fgetcsv($file)) !== false) {
