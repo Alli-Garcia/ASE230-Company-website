@@ -31,7 +31,7 @@ $contactRequests = getContactRequests();
                 <td><?php echo $request['name']; ?></td>
                 <td><?php echo $request['email']; ?></td>
                 <td>
-                    <a href="detail.php?id=<?php echo $index; ?>">View Details</a>
+                    <a href="detail.php?id=<?php echo $request['id']; ?>">View Details</a>
                 </td>
             </tr>
         <?php endforeach; ?>
