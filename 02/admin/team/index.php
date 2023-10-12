@@ -1,6 +1,6 @@
 <?php
 // list all available items in team.csv database
-require_once('team.php');
+ require('team.php');
 $teamMembers = getTeamMembers();
 foreach ($teamMembers as $teamMember) {
     // display team member information

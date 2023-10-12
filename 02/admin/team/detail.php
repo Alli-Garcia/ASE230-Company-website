@@ -1,5 +1,5 @@
 <?php
-include_once 'team.php';
+    require 'team.php';
 
 if (isset($_GET['index'])) {
     $index = $_GET['index'];
