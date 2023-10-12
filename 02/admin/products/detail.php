@@ -7,9 +7,7 @@
 
 require('products.php');
 
-$products = index();
-
-$product = $products[$_GET['product']];
+$product = detail($_GET['product']);
 
 ?>
 
