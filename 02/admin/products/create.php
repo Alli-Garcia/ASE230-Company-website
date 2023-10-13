@@ -34,10 +34,10 @@ require('products.php');
 if (array_key_exists('submitButton', $_POST)){
     $newProduct = array('name' => $_POST['nameInput'], 'description' => $_POST['descriptionInput'], 'applications' => [array('name' => $_POST["application1NameInput"], 'description' => $_POST["application1DescriptionInput"]), array('name' => $_POST["application2NameInput"], 'description' => $_POST["application2DescriptionInput"]), array('name' => $_POST["application3NameInput"], 'description' => $_POST["application3DescriptionInput"])]);
     create($newProduct);
-    $newProductIndex = count(index()) - 1;
+    
+    header('Location: index.php');
 }
-
-    ?>
+?>
 
 <script src="../../js/bootstrap.bundle.min.js"></script>
 <script src="../../js/smooth-scroll.polyfills.min.js"></script>
