@@ -1,5 +1,5 @@
 <?php
-require ('team.php')
+require('team.php');
 
 // Check if user has confirmed deletion
 if (isset($_POST['confirm']) && $_POST['confirm'] == 'yes') {
@@ -8,7 +8,7 @@ if (isset($_POST['confirm']) && $_POST['confirm'] == 'yes') {
 
     // Load the team data from .csv file
     $teamMembers = array_map('str_getcsv', file('team.csv'));
-    array_walk($teamMembers, function(&$a) use ($teamMembers) {
+    array_walk($teamMembers, function (&$a) use ($teamMembers) {
         $a = array_combine($teamMembers[0], $a);
     });
     array_shift($teamMembers);
@@ -34,7 +34,7 @@ $index = $_GET['index'];
 
 // Load the current team data from the file
 $teamMembers = array_map('str_getcsv', file('team.csv'));
-array_walk($teamMembers, function(&$a) use ($teamMembers) {
+array_walk($teamMembers, function (&$a) use ($teamMembers) {
     $a = array_combine($teamMembers[0], $a);
 });
 array_shift($teamMembers);
@@ -44,8 +44,8 @@ $item = $teamMembers[$index];
 
 // Display confirmation message to user
 echo '<p>Are you sure you wish to delete the following item(s)?</p>';
-echo '<p>Name: ' . $item['name'] . '</p>';
-echo '<p>Title: ' . $item['title'] . '</p>';
+echo '<p>Team member: ' . $item['team member'] . '</p>';
+echo '<p>Role: ' . $item['role'] . '</p>';
 echo '<p>Bio: ' . $item['bio'] . '</p>';
 echo '<p><a href="team.php">Cancel</a> | <a href="#" onclick="document.getElementById(\'delete-form\').submit();">Delete</a></p>';
 
