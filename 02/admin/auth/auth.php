@@ -9,7 +9,7 @@ function registerUser($username, $password) {
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
     $stmt = $conn->prepare("INSERT INTO user (username, password) VALUES (?, ?)");
-    $stmt->bind_param("ss", $username);
+    $stmt->bind_param("ss", $username, $hashedPassword);
 
     return $stmt->execute();
 }
@@ -17,23 +17,27 @@ function registerUser($username, $password) {
 function authenticateUser($username, $password) {
     global $conn;
 
-    $stmt = $conn->prepare("SELECT * FROM user WHERE username = ?");
+    $stmt = $conn->prepare("SELECT * FROM user_id, username, email, password WHERE username = ?");
     $stmt->bind_param("s", $username);
-    $stmt->execute();
+
+    if (!$stmt->execute()) {
+        die("Error: " . $stmt->error);
+    }
+
     
     // Bind all columns returned by the SELECT query
-    $stmt->bind_result($user_id, $username, $email);
+    $stmt->bind_result($user_id, $username, $email, $password);
 
     // Fetch the result
     $stmt->fetch();
 
-    /*if ($hashed_password && password_verify($password, $hashed_password)) {
+    if ($hashed_password && password_verify($password, $hashed_password)) {
         $_SESSION['user_id'] = $user_id;
         $_SESSION['username'] = $username;
         return true;
     }
 
-    return false;*/
+    return false;
 }
 
 
