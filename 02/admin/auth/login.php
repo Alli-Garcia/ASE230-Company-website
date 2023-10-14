@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Authenticate the user
     if (authenticateUser($username, $password)) {
         // User is authenticated, redirect to a secure page
-        header('Location: secure_page.php');
+        header('Location: index.php');
         exit;
     } else {
         // Authentication failed, display an error message
