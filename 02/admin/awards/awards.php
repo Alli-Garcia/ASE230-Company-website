@@ -6,45 +6,62 @@
 function index(){
 $file = '../../data/awards.csv';
 $fp=fopen($file,'r');
+$awards = [];
 $i=0;
-while($content=fgetcsv($fp)){ 
-    if($i == 0){
-        echo $content[0],'<br>';
-        $i++;
-    }  
-    //echo $content[0],' ',$content[1].'<br >';
-    else{
-        ?><a href=detail.php?index='<?php echo $i; ?>' class="btn btn-secondary"><?php echo $content[0],'<br>'; ?></a><?php
-        $i++;
-    }
-
+while(($content=fgetcsv($fp)) == !false){ 
+    //print_r($content);
+    $awards[$i] = $content;
+    $i++;
 }
 fclose($fp);
+//print '<pre>' . print_r($awards, true) . '</pre>';
+return $awards;
 
 }
 
 function create(){
 $file = '../../data/awards.csv';
 $fp=fopen($file,'a');
-$list=array(' ', ' ');
+$i=0;
+$list=array('Place', 'holder');
 fputcsv($fp, $list);
 fclose($fp);
-
-    
+$fp=fopen($file,'r');
+while(($content=fgetcsv($fp)) == !false){$i++; echo $i;}
+fclose($fp);
+return $i;  
 }
 
-function edit(){
-    echo 'Edit call worked';
+function edit($ref){
+//echo $ref;
+$file = '../../data/awards.csv';
+$fp=fopen($file,'r');
+$awards = [];
+$i=0;
+while(($content=fgetcsv($fp)) == !false){ 
+    if($ref == $i){
+        //echo $i;
+        fclose($fp);
+        return $content;
+        break;
+    }
+    $awards[$i] = $content;
+    $i++;
+}
+fclose($fp);
+//print '<pre>' . print_r($awards, true) . '</pre>';
+return $awards;
 }
 
-function detail($ref){
+function detail($ref/*int*/){
+//print '<pre>' . print_r($ref, true) . '</pre>';
 $file = '../../data/awards.csv';
 $fp=fopen($file,'r');
 $i=0;
-
 while($content=fgetcsv($fp)){
-    if($i == $ref){        
-        echo $content[1],'<br>';        
+    if($ref == $i){        
+        echo $content[1];  
+        echo '</br>';
         break;
     }
     else{
@@ -54,7 +71,28 @@ while($content=fgetcsv($fp)){
 };
     
 }
-function delete(){
+function delete($ref){
+$file = '../../data/awards.csv';
+$fp=fopen($file,'r');
+$tempFp = fopen('../../data/temp.csv', 'w');
+$awards = [];
+$i=0;
+while(($content=fgetcsv($fp)) == !false){ 
+    if($ref == $i){
+        continue;
+    }
+    else{
+    $awards[$i] =$content;
+    fputcsv($tempFp, $content);
+    $i++;
+    }
+}
+//print '<pre>' . print_r($awards, true) . '</pre>';
+fclose($fp);
+fclose($tempFp);
+unlink('../../data/awards.csv');
+rename('../../data/temp.csv','../../data/awards.csv');
+echo 'Changes made.';
     
 }
 
