@@ -1,14 +1,19 @@
 <?php
 include_once 'auth.php';
 
+// Check if the form has been submitted
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Retrieve the submitted username and password
     $username = $_POST['username'];
     $password = $_POST['password'];
 
+    // Authenticate the user
     if (authenticateUser($username, $password)) {
-        header('Location: index.php');
+        // User is authenticated, redirect to a secure page
+        header('Location: secure_page.php');
         exit;
     } else {
+        // Authentication failed, display an error message
         $error = 'Login failed. Check your username and password.';
     }
 }

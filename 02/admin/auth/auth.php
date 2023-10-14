@@ -8,7 +8,7 @@ function registerUser($username, $password) {
 
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-    $stmt = $conn->prepare("INSERT INTO users (username, password) VALUES (?, ?)");
+    $stmt = $conn->prepare("INSERT INTO user (username, password) VALUES (?, ?)");
     $stmt->bind_param("ss", $username, $hashedPassword);
 
     return $stmt->execute();
@@ -17,10 +17,10 @@ function registerUser($username, $password) {
 function authenticateUser($username, $password) {
     global $conn;
 
-    $stmt = $conn->prepare("SELECT id, password FROM users WHERE username = ?");
+    $stmt = $conn->prepare("SELECT * FROM user WHERE username = ?");
     $stmt->bind_param("s", $username);
     $stmt->execute();
-    $stmt->bind_result($user_id, $hashed_password);
+    $stmt->bind_result($user_id, $username, $hashed_password);
     $stmt->fetch();
 
     if ($hashed_password && password_verify($password, $hashed_password)) {
@@ -31,6 +31,7 @@ function authenticateUser($username, $password) {
 
     return false;
 }
+
 
 function isLoggedIn() {
     return isset($_SESSION['user_id']);
