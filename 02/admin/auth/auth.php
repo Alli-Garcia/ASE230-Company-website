@@ -22,7 +22,7 @@ function authenticateUser($username, $password) {
     $stmt->execute();
     
     // Bind all columns returned by the SELECT query
-    $stmt->bind_result($user_id, $username, $hashed_password);
+    $stmt->bind_result($user_id, $username, $hashed_password, $email);
 
     // Fetch the result
     $stmt->fetch();
