@@ -20,7 +20,11 @@ function authenticateUser($username, $password) {
     $stmt = $conn->prepare("SELECT * FROM user WHERE username = ?");
     $stmt->bind_param("s", $username);
     $stmt->execute();
+    
+    // Bind all columns returned by the SELECT query
     $stmt->bind_result($user_id, $username, $hashed_password);
+
+    // Fetch the result
     $stmt->fetch();
 
     if ($hashed_password && password_verify($password, $hashed_password)) {
@@ -31,6 +35,7 @@ function authenticateUser($username, $password) {
 
     return false;
 }
+
 
 
 function isLoggedIn() {
