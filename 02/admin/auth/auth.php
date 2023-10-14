@@ -17,7 +17,7 @@ function registerUser($username, $password) {
 function authenticateUser($username, $password) {
     global $conn;
 
-    $stmt = $conn->prepare("SELECT * FROM user_id, username, email, password WHERE username = ?");
+    $stmt = $conn->prepare("SELECT * FROM users.user password WHERE username = ?");
     $stmt->bind_param("s", $username);
 
     if (!$stmt->execute()) {
