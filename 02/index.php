@@ -1,9 +1,18 @@
+<?php
+// Include the plain-text.php function
+include('lib/plain-text.php');
+
+// Call the function to get the content
+$textContent = readTextFile(); 
+
+// Display the content
+echo <<<'HTML'
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8" />
-    <title>NaturaTech</title>
+    <title>Hiric</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Premium Bootstrap 5 Landing Page Template" />
     <meta name="keywords" content="bootstrap 5, premium, marketing, multipurpose" />
@@ -29,8 +38,8 @@
         id="navbar">
         <div class="container">
             <!-- LOGO -->
-            <a class="navbar-brand logo text-uppercase" href="index.php">
-                <i class="mdi mdi-alien"></i> NaturaTech
+            <a class="navbar-brand logo text-uppercase" href="index.html">
+                <i class="mdi mdi-alien"></i>Hiric
             </a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
@@ -47,10 +56,13 @@
                         <a data-scroll href="#features" class="nav-link">Features</a>
                     </li>
                     <li class="nav-item">
-                        <a data-scroll href="#services" class="nav-link">Services</a>
+                        <a data-scroll href="#services" class="nav-link">Products & Services</a>
                     </li>
                     <li class="nav-item">
                         <a data-scroll href="#about" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a data-scroll href="#pricing" class="nav-link">Pricing</a>
                     </li>
                     <li class="nav-item">
                         <a data-scroll href="#blog" class="nav-link">Blog</a>
@@ -64,8 +76,8 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li>
                             <button type="button"
-                                class="btn btn-primary navbar-btn btn-rounded waves-effect waves-light">Learn
-                                More</button>
+                                class="btn btn-primary navbar-btn btn-rounded waves-effect waves-light">Try it
+                                Free</button>
                         </li>
                     </ul>
                 </div>
@@ -80,18 +92,29 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-8 text-white text-center">
-                    <h4 class="home-small-title">Earth-friendly Design</h4>
-                    <h1 class="home-title">To bridge the chasm between technology and nature, weaving them together
-                        to pioneer solutions that nurture the Earth and advance humanity</h1>
+                    <h4 class="home-small-title">Awesome Design</h4>
+                    <h1 class="home-title">We love make things amazing and simple</h1>
                     <p class="pt-3 home-desc mx-auto">Maecenas class semper class semper sollicitudin lectus lorem
                         iaculis imperdiet aliquam vehicula tempor auctor curabitur pede aenean ornare.</p>
                     <p class="play-shadow mt-4" data-bs-toggle="modal" data-bs-target="#watchvideomodal"><a
                             href="javascript: void(0);" class="play-btn video-play-icon"><i
                                 class="mdi mdi-play text-center"></i></a></p>
 
+                    <!-- Modal -->
+                    <div class="modal fade" id="watchvideomodal"  tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-body p-0" style="margin-bottom: -8px;">
+                                    <video id="VisaChipCardVideo" class="video-box" controls  width="800" >
+                                        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" >
+                                        <!--Browser does not support <video> tag -->
+                                    </video>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
         </div>
     </section>
     <!--END HOME-->
@@ -134,10 +157,7 @@
             <div class="row align-items-center">
                 <div class="col-lg-5 order-2 order-lg-1">
                     <div class="features-box mt-5 mt-lg-0">
-                        <h3>We embrace the philosophy of "Progress in Harmony," striving
-                            to produce technology that integrates seamlessly with nature, aiming to restore
-                            environmental balance and promote sustainable
-                            living.</h3>
+                        <h3>A digital web design studio creating modern & engaging online</h3>
                         <p class="text-muted web-desc">Separated they live in Bookmarksgrove right at the coast of the
                             Semantics, a large language ocean.</p>
                         <ul class="text-muted list-unstyled mt-4 features-item-list">
@@ -164,8 +184,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 offset-lg-2">
-                    <h1 class="section-title text-center"> Our Services</h1>
+                    <h1 class="section-title text-center">Our Services</h1>
                     <div class="section-title-border mt-3"></div>
+                    <p class="section-subtitle text-muted text-center pt-4 font-secondary">We craft digital, graphic and
+                        dimensional thinking, to create category leading brand experiences that have meaning and add a
+                        value for our clients.</p>
                 </div>
             </div>
             <div class="row mt-5">
@@ -174,22 +197,9 @@
                         <div class="d-flex">
                             <i class="pe-7s-diamond text-primary"></i>
                             <div class="ms-4">
-                                <h4>GreenRoof™</h4>
-                                <p class="pt-2 text-muted">A modular green roofing system that utilizes smart sensors to
-                                    regulate water, sunlight, and nutrients, allowing urban spaces to contribute
-                                    positively to the environment.</p>
-                                <h4>Features:</h4>
-                                <ul class="text-muted">
-                                    <li>Smart Irrigation:The system detects soil moisture levels and provides optimal
-                                        water quantities,
-                                        reducing wastage and ensuring plant health.</li>
-                                    <li>Pollinator Patches: Specific sections within the GreenRoof™ are designed to
-                                        attract and
-                                        support urban pollinators like bees and butterflies.</li>
-                                    <li>Air Purification Zones: Incorporates certain plants known to absorb pollutants,
-                                        promoting cleaner
-                                        urban air and combating the urban heat island effect</li>
-                                </ul>
+                                <h4>Digital Design</h4>
+                                <p class="pt-2 text-muted">Some quick example text to build on the card title and make
+                                    up the bulk of the card's content. Moltin gives platform.</p>
                             </div>
                         </div>
                     </div>
@@ -199,22 +209,9 @@
                         <div class="d-flex">
                             <i class="pe-7s-display2 text-primary"></i>
                             <div class="ms-4">
-                                <h4>PureStream Filters™</h4>
-                                <p class="pt-2 text-muted">Bio-engineered filters that harness the power of specific
-                                    bacteria
-                                    and plants to purify water without chemicals, making potable water accessible and
-                                    sustainable.</p>
-                                <h4>Features:</h4>
-                                <ul class="text-muted">
-                                    <li>Microbial Cleansing: Harnesses beneficial bacteria to break down harmful
-                                        pathogens,
-                                        ensuring water purity without chemical residues.</li>
-                                    <li>Floating Gardens: Aesthetically pleasing modules that float on water surfaces,
-                                        removing heavy metals and other toxins using specific wetland plants.</li>
-                                    <li>Portable Units: Compact, travel-friendly variants designed for trekkers and
-                                        campers,
-                                        ensuring access to clean water even in remote areas.</li>
-                                </ul>
+                                <h4>Unlimited Colors</h4>
+                                <p class="pt-2 text-muted">Credibly brand standards compliant users without extensible
+                                    services. Anibh euismod tincidunt laoreet Ipsum passage.</p>
                             </div>
                         </div>
                     </div>
@@ -224,23 +221,9 @@
                         <div class="d-flex">
                             <i class="pe-7s-piggy text-primary"></i>
                             <div class="ms-4">
-                                <h4>TerraCharge™</h4>
-                                <p class="pt-2 text-muted">Pathways made with special tiles that convert foot traffic
-                                    into usable energy,
-                                    illuminating pathways at night or powering nearby amenities.</p>
-                                <h4>Features:</h4>
-                                <ul class="text-muted">
-                                    <li>Energy Storage: Surplus energy from foot traffic during the day is stored in
-                                        sleek,
-                                        underground batteries, allowing extended use after dark.</li>
-                                    <li>Intelligent Lighting: The stored energy powers adaptive lighting systems that
-                                        adjust based on
-                                        ambient light and movement,ensuring pathways are well-lit without unnecessary
-                                        energy consumption.</li>
-                                    <li>Interactive Displays: Some TerraCharge™ pathways feature interactive elements
-                                        like ground-projected
-                                        games or information graphics,all powered by pedestrian movement.</li>
-                                </ul>
+                                <h4>Strategy Solutions</h4>
+                                <p class="pt-2 text-muted">Separated they live in Bookmarksgrove right at the coast of
+                                    the Semantics, and large language ocean neary regelia.</p>
                             </div>
                         </div>
                     </div>
@@ -248,32 +231,110 @@
             </div>
             <div class="row">
                 <div class="col-lg-4 mt-4">
+            <?php
+            require('lib/json.php');
+            $productsAndServices = readJsonFile('data/products-and-services.json');
+
+            for ($i = 0; $i < count($productsAndServices); $i++) {
+                if (floor($i / 3) == $i / 3) {
+                    echo '<div class="row">';
+                }
+                echo '<div class="col-lg-4 mt-4">
                     <div class="services-box">
                         <div class="d-flex">
                             <i class="pe-7s-science text-primary"></i>
                             <div class="ms-4">
-                                <h4>EcoLearn Hub™</h4>
-                                <p class="pt-2 text-muted">A digital platform offering educational courses on
-                                    sustainable living,
-                                    organic farming, and eco-technology innovations</p>
-                                <h4>Features:</h4>
-                                <ul class="text-muted">
-                                    <li>DIY Workshops: Practical sessions teaching users how to upcycle waste,
-                                        create home gardens, or even set up solar panels.</li>
-                                    <li>Children's Series: Tailored courses introducing children to nature conservation,
-                                        renewable energy, and the importance of biodiversity.</li>
-                                    <li>Global Webinars: Regular online sessions featuring guest experts in fields like
-                                        permaculture,
-                                        green architecture, and sustainable transportation.
-                                        These webinars foster a community of eco-enthusiasts and offer the latest in
-                                        green innovations.</li>
-                                </ul>
+                                <h4>Awesome Support</h4>
+                                <p class="pt-2 text-muted">It is a paradisematic country, in which roasted parts of
+                                    sentences fly into your mouth leave for the far World.</p>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div class="col-lg-4 mt-4">
+                    <div class="services-box">
+                        <div class="d-flex">
+                            <i class="pe-7s-news-paper text-primary"></i>
+                            <div class="ms-4">
+                                <h4>Truly Multipurpose</h4>
+                                <p class="pt-2 text-muted">Even the all-powerful Pointing has no control about the blind
+                                    texts it is an almost unorthographic.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mt-4">
+                    <div class="services-box">
+                        <div class="d-flex">
+                            <i class="pe-7s-plane text-primary"></i>
+                            <div class="ms-4">
+                                <h4>Easy to customize</h4>
+                                <p class="pt-2 text-muted">Question Marks and devious Semikoli, but the Little Blind
+                                    Text didn’t listen. She packed her seven versalia.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-4 mt-4">
+                    <div class="services-box">
+                        <div class="d-flex">
+                            <i class="pe-7s-arc text-primary"></i>
+                            <div class="ms-4">
+                                <h4>Pixel Perfect Design</h4>
+                                <p class="pt-2 text-muted">There are many variations of passages of Lorem Ipsum
+                                    available, but the majority have suffered alteration.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mt-4">
+                    <div class="services-box">
+                        <div class="d-flex">
+                            <i class="pe-7s-tools text-primary"></i>
+                            <div class="ms-4">
+                                <h4>Perfect Toolbox</h4>
+                                <p class="pt-2 text-muted">Hampden-Sydney College in Virginia, looked up one of the more
+                                    obscure Latin words, consectetur.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mt-4">
+                    <div class="services-box">
+                        <div class="d-flex">
+                            <i class="pe-7s-timer text-primary"></i>
+                            <div class="ms-4">
+                                <h4>Awesome Design</h4>
+                                <p class="pt-2 text-muted">All the Lorem Ipsum generators on the Internet tend to repeat
+                                    predefined chunks as necessary.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                                <h4>' . $productsAndServices[$i]['name'] . '</h4>
+                                <p class="pt-2 text-muted">' . $productsAndServices[$i]['description'] . '</p>
+                                <h5>Applications</h5>
+                                <ul>';
+                for ($j = 0; $j < count($productsAndServices[$i]['applications']); $j++) {
+                    echo '<li>
+                                        <h5>' . $productsAndServices[$i]['applications'][$j]['name'] . '</h5>
+                                        <p>' . $productsAndServices[$i]['applications'][$j]['description'] . '</p>
+                                    </li>';
+                }
+                echo '</ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>';
+            }
+            ?>
+        </div>
     </section>
-    <!--END SERVICES-->
+    <!--START SERVICES-->
 
     <!--START WEBSITE-DESCRIPTION-->
     <section class="section bg-web-desc">
@@ -311,15 +372,11 @@
                     <div class="team-box text-center">
                         <div class="team-wrapper">
                             <div class="team-member">
-                                <img alt="" src="images/team/Greene.jpg" class="img-fluid rounded">
+                                <img alt="" src="images/team/img-1.jpg" class="img-fluid rounded">
                             </div>
                         </div>
-                        <h4 class="team-name">Dr. Marcus Greene </h4>
-                        <p class="text-uppercase team-designation">Founder & CEO</p>
-                        <p class="text-information">Holding a Ph.D. in Environmental Science from Stanford, Dr. Greene
-                            has always been
-                            a passionate advocate for eco-conscious innovations.
-                            His visionary leadership is the bedrock on which NaturaTech stands.</p>
+                        <h4 class="team-name">Frank Johnson</h4>
+                        <p class="text-uppercase team-designation">CEO</p>
                     </div>
                 </div>
 
@@ -327,14 +384,11 @@
                     <div class="team-box text-center">
                         <div class="team-wrapper">
                             <div class="team-member">
-                                <img alt="" src="images/team/Kwon.jpg" class="img-fluid rounded">
+                                <img alt="" src="images/team/img-2.jpg" class="img-fluid rounded">
                             </div>
                         </div>
-                        <h4 class="team-name">Aisha Kwon</h4>
-                        <p class="text-uppercase team-designation">Chief of Design</p>
-                        <p class="text-information">With her background in bio-engineering, is the mastermind behind
-                            the cutting-edge technologies at NaturaTech.
-                            She believes in harnessing nature's wisdom to address modern challenges.</p>
+                        <h4 class="team-name">Elaine Stclair</h4>
+                        <p class="text-uppercase team-designation">Designer</p>
                     </div>
                 </div>
 
@@ -342,14 +396,11 @@
                     <div class="team-box text-center">
                         <div class="team-wrapper">
                             <div class="team-member">
-                                <img alt="" src="images/team/Mendoza.jpg" class="img-fluid rounded">
+                                <img alt="" src="images/team/img-3.jpg" class="img-fluid rounded">
                             </div>
                         </div>
-                        <h4 class="team-name">Carlos Mendoza </h4>
+                        <h4 class="team-name">Wanda Arthur</h4>
                         <p class="text-uppercase team-designation">Developer</p>
-                        <p class="text-information">Carlos, an alumnus of Design Academy Eindhoven, combines minimalism
-                            with bio-inspired designs,
-                            making NaturaTech's products not only functional but also aesthetically appealing.</p>
                     </div>
                 </div>
 
@@ -357,29 +408,11 @@
                     <div class="team-box text-center">
                         <div class="team-wrapper">
                             <div class="team-member">
-                                <img alt="" src="images/team/D'souza.jpg" class="img-fluid rounded">
+                                <img alt="" src="images/team/img-4.jpg" class="img-fluid rounded">
                             </div>
                         </div>
-                        <h4 class="team-name">Lydia D'souza</h4>
-                        <p class="text-uppercase team-designation">VP of Operations</p>
-                        <p class="text-information">Lydia's expertise lies in sustainable supply chains. She ensures
-                            that every step in NaturaTech's
-                            operations is ethical, green, and efficient.</p>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-sm-6">
-                    <div class="team-box text-center">
-                        <div class="team-wrapper">
-                            <div class="team-member">
-                                <img alt="" src="images/team/Ahmed.jpg" class="img-fluid rounded">
-                            </div>
-                        </div>
-                        <h4 class="team-name">Jamal Ahmed </h4>
-                        <p class="text-uppercase team-designation">Head of EcoLearn Hub</p>
-                        <p class="text-information">As former environmental studies professor from Yale, he curates and
-                            oversees the rich tapestry of courses offered by EcoLearn, spreading eco-awareness across
-                            the globe.</p>
+                        <h4 class="team-name">Joshua Stemple</h4>
+                        <p class="text-uppercase team-designation">Manager</p>
                     </div>
                 </div>
 
@@ -387,6 +420,70 @@
         </div>
     </section>
     <!--END ABOUT-US-->
+
+    <!--START PRICING-->
+    <section class="section bg-light" id="pricing">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                    <h1 class="section-title text-center">Our Pricing</h1>
+                    <div class="section-title-border mt-3"></div>
+                    <p class="section-subtitle font-secondary text-muted text-center pt-4">Call to action pricing table
+                        is really crucial to your for your business website. Make your bids stand-out with amazing
+                        options.</p>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-lg-4">
+                    <div class="text-center pricing-box">
+                        <h4 class="text-uppercase">Economy</h4>
+                        <h1>$9.90</h1>
+                        <h6 class="text-uppercase text-muted">Billing Per Month</h6>
+                        <div class="plan-features mt-5">
+                            <p>Bandwidth: <b class="text-primary">1GB</b></p>
+                            <p>Onlinespace: <b class="text-primary">50MB</b></p>
+                            <p>Support: <b class="text-primary">No</b></p>
+                            <p><b class="text-primary">1</b> Domain</p>
+                            <p><b class="text-primary">No</b> Hidden Fees</p>
+                        </div>
+                        <a href="#" class="btn btn-primary waves-effect waves-light mt-5">Join Now</a>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="text-center pricing-box price-active">
+                        <div class="ribbon-box"><span>Popular</span></div>
+                        <h4 class="text-uppercase">Deluxe</h4>
+                        <h1>$19.90</h1>
+                        <h6 class="text-uppercase text-muted">Billing Per Month</h6>
+                        <div class="plan-features mt-5">
+                            <p>Bandwidth: <b class="text-primary">10GB</b></p>
+                            <p>Onlinespace: <b class="text-primary">500MB</b></p>
+                            <p>Support: <b class="text-primary">Yes</b></p>
+                            <p><b class="text-primary">10</b> Domain</p>
+                            <p><b class="text-primary">No</b> Hidden Fees</p>
+                        </div>
+                        <a href="#" class="btn btn-primary waves-effect waves-light mt-5">Join Now</a>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="text-center pricing-box">
+                        <h4 class="text-uppercase">Ultimate</h4>
+                        <h1>$29.90</h1>
+                        <h6 class="text-uppercase text-muted">Billing Per Month</h6>
+                        <div class="plan-features mt-5">
+                            <p>Bandwidth: <b class="text-primary">100GB</b></p>
+                            <p>Onlinespace: <b class="text-primary">2 GB</b></p>
+                            <p>Support: <b class="text-primary">Yes</b></p>
+                            <p><b class="text-primary">Unlimited</b> Domain</p>
+                            <p><b class="text-primary">No</b> Hidden Fees</p>
+                        </div>
+                        <a href="#" class="btn btn-primary waves-effect waves-light mt-5">Join Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--ENd PRICING-->
 
     <!--START TESTIMONIAL-->
     <section class="section" id="testi">
@@ -550,15 +647,6 @@
     <!-- END BLOG -->
 
     <!-- CONTACT FORM START-->
-    <?php
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $name = $_POST['name'];
-        $email = $_POST['email'];
-        $subject = $_POST['subject'];
-        $comments = $_POST['comments'];
-    }
-    ?>
-
     <section class="section " id="contact">
         <div class="container">
             <div class="row">
@@ -694,7 +782,7 @@
                     <div class="float-sm-start pull-none">
                         <p class="copy-rights  mb-3 mb-sm-0">
                             <script>
-                            document.write(new Date().getFullYear())
+                                document.write(new Date().getFullYear())
                             </script> © Hiric - Themesbrand
                         </p>
                     </div>
@@ -770,3 +858,4 @@
 </body>
 
 </html>
+HTML;?>
