@@ -2,7 +2,8 @@
 //Include the contacts.php function
 include('admin/contacts/contacts.php');
 
-$contacts = getContacts();
+//commented out for testing
+//$contacts = getContacts();
 
 // Include the plain-text.php function
 include('lib/plain-text.php');
@@ -43,7 +44,7 @@ echo <<<'HTML'
         id="navbar">
         <div class="container">
             <!-- LOGO -->
-            <a class="navbar-brand logo text-uppercase" href="index.html">
+            <a class="navbar-brand logo text-uppercase" href="index.php">
                 <i class="mdi mdi-alien"></i>Hiric
             </a>
 
@@ -58,23 +59,20 @@ echo <<<'HTML'
                         <a data-scroll href="#home" class="nav-link">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a data-scroll href="#features" class="nav-link">Features</a>
+                        <a data-scroll href="../02/admin/awards/index.php" class="nav-link">Awards</a>
                     </li>
                     <li class="nav-item">
-                        <a data-scroll href="#services" class="nav-link">Products & Services</a>
+                        <a data-scroll href="../02/admin/products/index.php" class="nav-link">Products</a>
                     </li>
                     <li class="nav-item">
-                        <a data-scroll href="#about" class="nav-link">About</a>
+                        <a data-scroll href="../02/admin/teams/index.php" class="nav-link">Teams</a>
+                    </li>                    
+                    <li class="nav-item">
+                        <a data-scroll href="../02/admin/contact/index.php" class="nav-link">Contact</a>
                     </li>
                     <li class="nav-item">
-                        <a data-scroll href="#pricing" class="nav-link">Pricing</a>
-                    </li>
-                    <li class="nav-item">
-                        <a data-scroll href="#blog" class="nav-link">Blog</a>
-                    </li>
-                    <li class="nav-item">
-                        <a data-scroll href="#contact" class="nav-link">Contact</a>
-                    </li>
+                        <a data-scroll href="../02/admin/auth/index.php" class="nav-link">Login</a>
+                    </li>  
 
                 </ul>
                 <div class="nav-button ms-auto">
