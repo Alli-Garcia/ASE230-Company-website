@@ -1,5 +1,5 @@
 <?php
-// list all available items in team.csv database
+// list all available items in ../../data/team.csv database
 require('team.php');
 $teamMembers = getTeamMembers();
 foreach ($teamMembers as $teamMember) {

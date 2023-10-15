@@ -1,10 +1,10 @@
 <?php
- require 'team.csv';
+require '../../data/team.csv';
 # Function to retrieve and index all items
 function getTeamMembers()
 {
     $teamMembers = [];
-    $file = fopen("team.csv", "r");
+    $file = fopen("../../data/team.csv", "r");
     $headers = fgetcsv($file); # Skip headers
     while (($data = fgetcsv($file)) !== false) {
         $teamMember = array_combine($headers, $data);
@@ -17,7 +17,7 @@ function getTeamMembers()
 # Function to retrieve specific item
 function getTeamMember($teamMemberName)
 {
-    $file = fopen("team.csv", "r");
+    $file = fopen("../../data/team.csv", "r");
     $headers = fgetcsv($file); # Skip headers
     while (($data = fgetcsv($file)) !== false) {
         $teamMember = array_combine($headers, $data);
@@ -33,7 +33,7 @@ function getTeamMember($teamMemberName)
 # Function to create new item
 function createTeamMember($teamMember)
 {
-    $file = fopen("team.csv", "a");
+    $file = fopen("../../data/team.csv", "a");
     fputcsv($file, $teamMember);
     fclose($file);
 }
@@ -41,7 +41,7 @@ function createTeamMember($teamMember)
 # Function to modify an item
 function updateTeamMember($teamMemberName, $updatedTeamMember)
 {
-    $file = fopen("team.csv", "r+");
+    $file = fopen("../../data/team.csv", "r+");
     $headers = fgetcsv($file); # Skip headers
     $updated = false;
     $newData = [];
@@ -69,7 +69,7 @@ function updateTeamMember($teamMemberName, $updatedTeamMember)
 # Function to delete an item
 function deleteTeamMember($teamMemberName)
 {
-    $file = fopen("team.csv", "r+");
+    $file = fopen("../../data/team.csv", "r+");
     $headers = fgetcsv($file); # Skip headers
     $deleted = false;
     $newData = [];

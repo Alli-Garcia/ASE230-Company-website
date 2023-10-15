@@ -7,7 +7,7 @@ if (isset($_POST['confirm']) && $_POST['confirm'] == 'yes') {
     $index = $_POST['index'];
 
     // Load the team data from .csv file
-    $teamMembers = array_map('str_getcsv', file('team.csv'));
+    $teamMembers = array_map('str_getcsv', file('../../data/team.csv'));
     array_walk($teamMembers, function (&$a) use ($teamMembers) {
         $a = array_combine($teamMembers[0], $a);
     });
@@ -17,7 +17,7 @@ if (isset($_POST['confirm']) && $_POST['confirm'] == 'yes') {
     unset($teamMembers[$index]);
 
     // Save the data to the file
-    $file = fopen('team.csv', 'w');
+    $file = fopen('../../data/team.csv', 'w');
     fputcsv($file, array_keys($teamMembers[0]));
     fwrite($file, "\n");
     foreach ($teamMembers as $teamMember) {
@@ -33,7 +33,7 @@ if (isset($_POST['confirm']) && $_POST['confirm'] == 'yes') {
 $index = $_GET['index'];
 
 // Load the current team data from the file
-$teamMembers = array_map('str_getcsv', file('team.csv'));
+$teamMembers = array_map('str_getcsv', file('../../data/team.csv'));
 array_walk($teamMembers, function (&$a) use ($teamMembers) {
     $a = array_combine($teamMembers[0], $a);
 });
