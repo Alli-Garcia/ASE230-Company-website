@@ -1,13 +1,38 @@
 <?php
 // list all available items in ../../data/team.csv database
-require('team.php');
-print '<pre>' . print_r($awards, true) . '</pre>';
+require __DIR__ . '/team.php';
+
 $teamMembers = getTeamMembers();
-foreach ($teamMembers as $teamMember) {
-    // display team member information
-    echo '<h1>' . $teamMember['Team member'] . '</h1>';
-    echo '<p><strong>Role:</strong> ' . $teamMember['Role'] . '</p>';
-    echo '<p><strong>Bio:</strong> ' . $teamMember['Bio'] . '</p>';
-}
+
 echo '<a href="create.php"><button>Create</button></a>';
 ?>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Member Index</title>
+</head>
+
+<body>
+    <form method="post" action="../team/detail.php">
+
+        <?php
+        $i = 0;
+        foreach ($teamMembers as $teamMember) {
+            ?>
+
+        <button class="btn btn-primary" type="submit " name="Team member" value="<?php echo $i; ?>">
+            <?php echo ($teamMember['Team member'])?>
+        </button>
+
+        <?php
+            $i++;
+        }
+        ?>
+
+
+</body>
+
+</html>
