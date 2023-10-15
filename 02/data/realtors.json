@@ -1,0 +1,22 @@
+{
+    "realtors": [
+    {
+        "id": 1,
+        "name": "John Doe",
+        "email": "john@example.com",
+        "bio": "Experienced realtor with a passion for helping clients find their dream homes."
+    },
+    {
+        "id": 2,
+        "name": "Jane Smith",
+        "email": "jane@example.com",
+        "bio": "Dedicated realtor specializing in residential properties with a focus on customer satisfaction."
+    },
+    {
+        "id": 3,
+        "name": "Bob Johnson",
+        "email": "bob@example.com",
+        "bio": "Knowledgeable realtor with expertise in commercial real estate and investment properties."
+    }
+]
+}
