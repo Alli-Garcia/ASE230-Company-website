@@ -4,13 +4,16 @@ require '../../data/team.csv';
 function getTeamMembers()
 {
     $teamMembers = [];
-    $file = fopen("../../data/team.csv", "r");
-    $headers = fgetcsv($file); # Skip headers
-    while (($data = fgetcsv($file)) !== false) {
-        $teamMember = array_combine($headers, $data);
-        $teamMembers[] = $teamMember;
+    $file = '../../data/team.csv';
+    $fp = fopen($file, 'r');
+    $i = 0;
+    while (($data = fgetcsv($fp)) == !false) {
+        //print_r($content);
+        $teamMembers[$i] = $data;
+        $i++;
     }
-    fclose($file);
+    fclose($fp);
+    print '<pre>' . print_r($teamMembers, true) . '</pre>';
     return $teamMembers;
 }
 

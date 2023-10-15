@@ -1,6 +1,7 @@
 <?php
 // list all available items in ../../data/team.csv database
 require('team.php');
+print '<pre>' . print_r($awards, true) . '</pre>';
 $teamMembers = getTeamMembers();
 foreach ($teamMembers as $teamMember) {
     // display team member information
