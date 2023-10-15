@@ -1,9 +1,9 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Handle form submission
-    $name = $_POST['Team member'];
-    $role = $_POST['Role'];
-    $bio = $_POST['Bio'];
+    $name = $_POST['name'];
+    $role = $_POST['role'];
+    $bio = $_POST['bio'];
 
     // Save new team member to ../../data/team.csv
     $file = fopen('../../data/team.csv', 'a');
@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <h1>Create New Team Member</h1>
 
 <form method="POST">
-    <label for="name">Team member:</label>
+    <label for="name">Name:</label>
     <input type="text" id="name" name="name" required>
 
     <label for="role">Role:</label>

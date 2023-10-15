@@ -7,7 +7,7 @@
 require('team.php');
 
 // Get index of the item to edit
-$teamMember = $_GET['team_member'];
+$index = $_GET['index'];
 
 // Load current team data from ../../data/team.csv
 $teamMembers = array_map('str_getcsv', file('../../data/team.csv'));
@@ -17,14 +17,14 @@ array_walk($teamMembers, function (&$a) use ($teamMembers) {
 array_shift($teamMembers);
 
 // Get item to edit
-$item = $teamMembers[$teamMember];
+$item = $teamMembers[$index];
 
 // Display a form with current item data to user
 echo '<form method="post" action="save.php">';
 echo 'Team member: <input type="text" name="team_member" value="' . $item['team member'] . '"><br>';
 echo 'Role: <input type="text" name="role" value="' . $item['role'] . '"><br>';
 echo 'Bio: <textarea name="bio">' . $item['bio'] . '</textarea><br>';
-echo '<input type="hidden" name="index" value="' . $teamMember . '">';
+echo '<input type="hidden" name="index" value="' . $index . '">';
 echo '<input type="button" value="Save changes" onclick="this.form.submit()">';
 echo '</form>';
 ?>
