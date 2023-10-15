@@ -23,6 +23,7 @@ function getTeamMembers()
 # Function to retrieve specific item
 function getTeamMember($teamMemberName)
 {
+    $teamMember = [];
     $file = fopen("../../data/team.csv", "r");
     $headers = fgetcsv($file); # Skip headers
     while (($data = fgetcsv($file)) !== false) {
