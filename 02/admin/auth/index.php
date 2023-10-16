@@ -12,6 +12,7 @@ if (!isLoggedIn()) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>Home Page</title>
 </head>
 <body>
@@ -22,5 +23,7 @@ if (!isLoggedIn()) {
     <form action="logout.php" method="post">
         <input type="submit" value="Logout">
     </form>
+    
 </body>
 </html>
+
