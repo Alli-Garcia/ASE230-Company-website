@@ -63,7 +63,7 @@ echo <<<'HTML'
                         <a data-scroll href="../02/admin/awards/index.php" class="nav-link">Awards</a>
                     </li>
                     <li class="nav-item">
-                        <a data-scroll href="../02/admin/products/index.php" class="nav-link">Products</a>
+                        <a data-scroll href="../02/admin/products/index.php" class="nav-link">Listings</a>
                     </li>
                     <li class="nav-item">
                         <a data-scroll href="../02/admin/teams/index.php" class="nav-link">Teams</a>
@@ -79,9 +79,9 @@ echo <<<'HTML'
                 <div class="nav-button ms-auto">
                     <ul class="nav navbar-nav navbar-right">
                         <li>
+                            <a data-scroll href="../02/admin/auth/registration.php">
                             <button type="button"
-                                class="btn btn-primary navbar-btn btn-rounded waves-effect waves-light">Try it
-                                Free</button>
+                                class="btn btn-primary navbar-btn btn-rounded waves-effect waves-light">Sign Up</button>
                         </li>
                     </ul>
                 </div>
@@ -96,8 +96,8 @@ echo <<<'HTML'
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-8 text-white text-center">
-                    <h4 class="home-small-title">Awesome Design</h4>
-                    <h1 class="home-title">We love make things amazing and simple</h1>
+                    <h4 class="home-small-title">EverGreen Estates Realty</h4>
+                    <h1 class="home-title">Finding you your dream home</h1>
                     <p class="pt-3 home-desc mx-auto">Maecenas class semper class semper sollicitudin lectus lorem
                         iaculis imperdiet aliquam vehicula tempor auctor curabitur pede aenean ornare.</p>
                     <p class="play-shadow mt-4" data-bs-toggle="modal" data-bs-target="#watchvideomodal"><a
