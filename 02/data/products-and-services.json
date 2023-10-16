@@ -1,74 +1,82 @@
 [
   {
-    "name": "GreenRoof™",
-    "description": "A modular green roofing system that utilizes smart sensors to regulate water, sunlight, and nutrients, allowing urban spaces to contribute positively to the environment.",
-    "applications": [
+    "name": "NatureVista Haven",
+    "county": "Greenwood County",
+    "description": "Immerse yourself in a green oasis with this eco-conscious residence, featuring smart gardening, water purification, and energy-harvesting pathways.",
+    "features": [
       {
-        "name": "Smart Irrigation",
-        "description": "The system detects soil moisture levels and provides optimal water quantities, reducing wastage and ensuring plant health."
+        "name": "Intelligent Garden Oasis",
+        "description": "Automated irrigation based on plant needs, creating a lush and thriving outdoor space."
       },
       {
-        "name": "Pollinator Patches",
-        "description": "Specific sections within the GreenRoof™ are designed to attract and support urban pollinators like bees and butterflies."
+        "name": "Butterfly Meadows",
+        "description": "Dedicated garden sections designed to attract and nurture butterflies, adding a touch of nature to your backyard."
       },
       {
-        "name": "Air Purification Zones",
-        "description": "Incorporates certain plants known to absorb pollutants, promoting cleaner urban air and combating the urban heat island effect."
+        "name": "Air-Purifying Sanctuary",
+        "description": "Indoor plants strategically placed for air purification, ensuring a fresh and healthy living environment."
       }
-    ]
+    ],
+    "estimated_price": "$550,000"
   },
   {
-    "name": "PureStream Filters™",
-    "description": "Bio-engineered filters that harness the power of specific bacteria and plants to purify water without chemicals, making potable water accessible and sustainable.",
-    "applications": [
+    "name": "AquaHarbor Retreat",
+    "county": "Marine County",
+    "description": "Experience water purity at its finest with this residence featuring state-of-the-art water purification systems and serene aquatic landscapes.",
+    "features": [
       {
-        "name": "Microbial Cleansing",
-        "description": "Harnesses beneficial bacteria to break down harmful pathogens, ensuring water purity without chemical residues."
+        "name": "Bio-Cleansing Technology",
+        "description": "Utilizes bio-engineered filters to cleanse water from harmful pathogens, providing crystal-clear water for various household uses."
       },
       {
-        "name": "Floating Gardens",
-        "description": "Aesthetically pleasing modules that float on water surfaces, removing heavy metals and other toxins using specific wetland plants."
+        "name": "Tranquil Floating Gardens",
+        "description": "A beautifully designed pond with floating gardens that not only enhance aesthetics but also naturally filter and purify the water."
       },
       {
-        "name": "Portable Units",
-        "description": "Compact, travel-friendly variants designed for trekkers and campers, ensuring access to clean water even in remote areas."
+        "name": "On-the-Go Purification",
+        "description": "Compact and portable water purification units, perfect for outdoor adventures or emergencies."
       }
-    ]
+    ],
+    "estimated_price": "$720,000"
   },
   {
-    "name": "TerraCharge™",
-    "description": "Pathways made with special tiles that convert foot traffic into usable energy, illuminating pathways at night or powering nearby amenities.",
-    "applications": [
+    "name": "EcoEnergia Estate",
+    "county": "Sustainable County",
+    "description": "Live in harmony with nature with this residence featuring energy-harvesting pathways, adaptive lighting, and interactive outdoor elements.",
+    "features": [
       {
-        "name": "Energy Storage",
-        "description": "Surplus energy from foot traffic during the day is stored in sleek, underground batteries, allowing extended use after dark."
+        "name": "Pathway Power Stations",
+        "description": "Stores energy generated from footsteps during the day, providing sustainable illumination for pathways and nearby areas at night."
       },
       {
-        "name": "Intelligent Lighting",
-        "description": "The stored energy powers adaptive lighting systems that adjust based on ambient light and movement, ensuring pathways are well-lit without unnecessary energy consumption."
+        "name": "Smart Illumination System",
+        "description": "Lights that automatically adjust based on natural light and movement, optimizing energy consumption while keeping your surroundings well-lit."
       },
       {
-        "name": "Interactive Displays",
-        "description": "Some TerraCharge™ pathways feature interactive elements like ground-projected games or information graphics, all powered by pedestrian movement."
+        "name": "Interactive Outdoor Experience",
+        "description": "Engage with your outdoor space through interactive ground projections, turning your garden into a dynamic and entertaining environment."
       }
-    ]
+    ],
+    "estimated_price": "$650,000"
   },
   {
-    "name": "EcoLearn Hub™",
-    "description": "A digital platform offering educational courses on sustainable living, organic farming, and eco-technology innovations.",
-    "applications": [
+    "name": "GreenLiving Retreat",
+    "county": "Eco Valley",
+    "description": "Embrace a sustainable lifestyle with this residence, complemented by a digital platform offering educational courses on eco-friendly practices.",
+    "features": [
       {
-        "name": "DIY Workshops",
-        "description": "Practical sessions teaching users how to upcycle waste, create home gardens, or even set up solar panels."
+        "name": "Hands-On Green Workshops",
+        "description": "Participate in DIY sessions covering everything from waste upcycling to creating and maintaining your own eco-friendly garden."
       },
       {
-        "name": "Children's Series",
-        "description": "Tailored courses introducing children to nature conservation, renewable energy, and the importance of biodiversity."
+        "name": "Nature Education for All Ages",
+        "description": "Tailored courses for residents and children, promoting awareness of nature conservation, renewable energy, and biodiversity."
       },
       {
-        "name": "Global Webinars",
-        "description": "Regular online sessions featuring guest experts in fields like permaculture, green architecture, and sustainable transportation. These webinars foster a community of eco-enthusiasts and offer the latest in green innovations."
+        "name": "Green Living Webinars",
+        "description": "Join online sessions with experts in sustainable living, green architecture, and eco-technology, fostering a community of like-minded residents."
       }
-    ]
+    ],
+    "estimated_price": "$590,000"
   }
 ]
