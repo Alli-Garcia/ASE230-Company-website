@@ -14,7 +14,7 @@ while(($content=fgetcsv($fp)) == !false){
     $i++;
 }
 fclose($fp);
-//print '<pre>' . print_r($awards, true) . '</pre>';
+print '<pre>' . print_r($awards, true) . '</pre>';
 return $awards;
 
 }
@@ -27,7 +27,7 @@ $list=array('Place', 'holder');
 fputcsv($fp, $list);
 fclose($fp);
 $fp=fopen($file,'r');
-while(($content=fgetcsv($fp)) == !false){$i++; echo $i;}
+while(($content=fgetcsv($fp)) == !false){$i++; /*echo $i;*/}
 fclose($fp);
 return $i;  
 }
