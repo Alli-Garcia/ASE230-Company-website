@@ -6,9 +6,10 @@ include_once 'db.php';
 function registerUser($username, $password) {
     global $conn;
 
-    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+    // Hash the password
+    $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
 
-    $stmt = $conn->prepare("INSERT INTO user (username, password) VALUES (?, ?)");
+    $stmt = $conn->prepare("INSERT INTO users (username, password) VALUES (?, ?)");
     $stmt->bind_param("ss", $username, $hashedPassword);
 
     return $stmt->execute();
@@ -17,16 +18,15 @@ function registerUser($username, $password) {
 function authenticateUser($username, $password) {
     global $conn;
 
-    $stmt = $conn->prepare("SELECT * FROM users.user password WHERE username = ?");
+    $stmt = $conn->prepare("SELECT user_id, username, email, password FROM users WHERE username = ?");
     $stmt->bind_param("s", $username);
 
     if (!$stmt->execute()) {
         die("Error: " . $stmt->error);
     }
 
-    
-    // Bind all columns returned by the SELECT query
-    $stmt->bind_result($user_id, $username, $email, $password);
+    // Bind the result variables
+    $stmt->bind_result($user_id, $username, $email, $hashed_password);
 
     // Fetch the result
     $stmt->fetch();
@@ -39,7 +39,6 @@ function authenticateUser($username, $password) {
 
     return false;
 }
-
 
 
 function isLoggedIn() {
