@@ -1,4 +1,5 @@
 <?php
+
 //Include the contacts.php function
 include('admin/contacts/contacts.php');
 
