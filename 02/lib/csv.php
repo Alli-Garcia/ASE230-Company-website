@@ -1,5 +1,6 @@
 <?php
-function readCSV($filename, $dataType) {
+function readCSV($filename, $dataType)
+{
     $data = [];
 
     if (($handle = fopen($filename, "r")) !== false) {
@@ -23,7 +24,7 @@ $achievementsFile = "awards.csv";
 $achievementsData = readCSV($achievementsFile, "awards");
 
 // Example usage for team members CSV:
-$teamMembersFile = "team.csv";
+$teamMembersFile = "../../data/team.csv";
 $teamMembersData = readCSV($teamMembersFile, "team");
 
 // Now, $achievementsData contains the achievements CSV data, and $teamMembersData contains the team members CSV data.
@@ -41,7 +42,7 @@ $teamMembersData = readCSV($teamMembersFile, "team");
             <th>Year</th>
             <th>Description</th>
         </tr>
-        <?php foreach ($achievementsData as $row) : ?>
+        <?php foreach ($achievementsData as $row): ?>
         <tr>
             <td><?= $row[0] ?></td>
             <td><?= $row[1] ?></td>
@@ -56,7 +57,7 @@ $teamMembersData = readCSV($teamMembersFile, "team");
             <th>Role</th>
             <th>Description</th>
         </tr>
-        <?php foreach ($teamMembersData as $row) : ?>
+        <?php foreach ($teamMembersData as $row): ?>
         <tr>
             <td><?= $row[0] ?></td>
             <td><?= $row[1] ?></td>

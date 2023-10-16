@@ -1,7 +1,7 @@
 <?php
 // TODO: 
-// create a form where the fields are poulated with the values from team.csv chosen
-// when the form is submitted, the values are updated in team.csv
+// create a form where the fields are poulated with the values from ../../data/team.csv chosen
+// when the form is submitted, the values are updated in ../../data/team.csv
 // the user is redirected to index.php
 // make a "save changes button" that submits the form
 require('team.php');
@@ -9,8 +9,8 @@ require('team.php');
 // Get index of the item to edit
 $index = $_GET['index'];
 
-// Load current team data from team.csv
-$teamMembers = array_map('str_getcsv', file('team.csv'));
+// Load current team data from ../../data/team.csv
+$teamMembers = array_map('str_getcsv', file('../../data/team.csv'));
 array_walk($teamMembers, function (&$a) use ($teamMembers) {
     $a = array_combine($teamMembers[0], $a);
 });
