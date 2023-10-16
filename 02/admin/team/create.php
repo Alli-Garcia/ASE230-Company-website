@@ -5,8 +5,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $role = $_POST['role'];
     $bio = $_POST['bio'];
 
-    // Save new team member to team.csv
-    $file = fopen('team.csv', 'a');
+    // Save new team member to ../../data/team.csv
+    $file = fopen('../../data/team.csv', 'a');
     fputcsv($file, [$name, $role, $bio]);
     fclose($file);
 
