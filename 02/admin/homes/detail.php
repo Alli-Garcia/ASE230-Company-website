@@ -7,8 +7,9 @@
 
 require('homes.php');
 
-$home = detail($_GET['home']);
-
+$homesManager = new HomesManager('../../data/homes.json');
+$homeIndex = $_GET['home'];
+$home = $homesManager->detail($homeIndex);
 ?>
 
 <div class='h-100 d-flex flex-column align-items-center justify-content-center'>
