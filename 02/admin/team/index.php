@@ -4,7 +4,8 @@
 // Hide text from team.csv displaying on the page
 require __DIR__ . '/team.php';
 
-$teamMembers = getTeamMembers();
+$teamManager = new TeamManager('.../.../lib/team.csv');
+$teamMembers = $teamManager->$getTeamMembers();
 
 echo '<a href="create.php"><button>Create</button></a>';
 ?>

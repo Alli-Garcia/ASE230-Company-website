@@ -1,102 +1,107 @@
-<?php
-require '../../data/team.csv';
-# Function to retrieve and index all items
-function getTeamMembers()
-{
-    $teamMembers = [];
-    $file = '../../data/team.csv';
-    $fp = fopen($file, 'r');
+<?php 
+class TeamManager {
+    private $file;
 
-    # Get headers
-    $headers = fgetcsv($fp);
-
-    while (($data = fgetcsv($fp)) !== false) {
-        # Combine headers with data
-        $teamMember = array_combine($headers, $data);
-        $teamMembers[] = $teamMember;
+    public function __construct($file) {
+        $this->file = $file;
     }
 
-    fclose($fp);
-    return $teamMembers;
-}
+    public function getTeamMembers() {
+        $teamMembers = [];
+        $fp = fopen($this->file, 'r');
+        $headers = fgetcsv($fp);
 
-# Function to retrieve specific item
-function getTeamMember($teamMemberName)
-{
-    $teamMember = [];
-    $file = fopen("../../data/team.csv", "r");
-    $headers = fgetcsv($file); # Skip headers
-    while (($data = fgetcsv($file)) !== false) {
-        $teamMember = array_combine($headers, $data);
-        if ($teamMember['Team member'] == $teamMemberName) {
-            fclose($file);
-            return $teamMember;
+        while (($data = fgetcsv($fp)) !== false) {
+            $teamMember = array_combine($headers, $data);
+            $teamMembers[] = $teamMember;
         }
-    }
-    fclose($file);
-    return null;
-}
 
-# Function to create new item
-function createTeamMember($teamMember)
-{
-    $file = fopen("../../data/team.csv", "a");
-    fputcsv($file, $teamMember);
-    fclose($file);
-}
+        fclose($fp);
+        return $teamMembers;
+    }
 
-# Function to modify an item
-function updateTeamMember($teamMemberName, $updatedTeamMember)
-{
-    $file = fopen("../../data/team.csv", "r+");
-    $headers = fgetcsv($file); # Skip headers
-    $updated = false;
-    $newData = [];
-    while (($data = fgetcsv($file)) !== false) {
-        $teamMember = array_combine($headers, $data);
-        if ($teamMember['Team member'] == $teamMemberName) {
-            $newData[] = $updatedTeamMember;
-            $updated = true;
-        } else {
-            $newData[] = $teamMember;
-        }
-    }
-    if ($updated) {
-        rewind($file);
-        fputcsv($file, $headers);
-        foreach ($newData as $data) {
-            fputcsv($file, $data);
-        }
-        ftruncate($file, ftell($file));
-    }
-    fclose($file);
-    return $updated;
-}
+    public function getTeamMember($teamMemberName) {
+        $teamMember = null;
+        $file = fopen($this->file, "r");
+        $headers = fgetcsv($file); // Skip headers
 
-# Function to delete an item
-function deleteTeamMember($teamMemberName)
-{
-    $file = fopen("../../data/team.csv", "r+");
-    $headers = fgetcsv($file); # Skip headers
-    $deleted = false;
-    $newData = [];
-    while (($data = fgetcsv($file)) !== false) {
-        $teamMember = array_combine($headers, $data);
-        if ($teamMember['Team member'] == $teamMemberName) {
-            $deleted = true;
-        } else {
-            $newData[] = $teamMember;
+        while (($data = fgetcsv($file)) !== false) {
+            $teamMember = array_combine($headers, $data);
+            if ($teamMember['Team member'] == $teamMemberName) {
+                fclose($file);
+                return $teamMember;
+            }
         }
+
+        fclose($file);
+        return $teamMember;
     }
-    if ($deleted) {
-        rewind($file);
-        fputcsv($file, $headers);
-        foreach ($newData as $data) {
-            fputcsv($file, $data);
+
+    public function createTeamMember($teamMember) {
+        $file = fopen($this->file, "a");
+        fputcsv($file, $teamMember);
+        fclose($file);
+    }
+
+    public function updateTeamMember($teamMemberName, $updatedTeamMember) {
+        $file = fopen($this->file, "r+");
+        $headers = fgetcsv($file); // Skip headers
+        $updated = false;
+        $newData = [];
+
+        while (($data = fgetcsv($file)) !== false) {
+            $teamMember = array_combine($headers, $data);
+            if ($teamMember['Team member'] == $teamMemberName) {
+                $newData[] = $updatedTeamMember;
+                $updated = true;
+            } else {
+                $newData[] = $teamMember;
+            }
         }
-        ftruncate($file, ftell($file));
+
+        if ($updated) {
+            rewind($file);
+            fputcsv($file, $headers);
+
+            foreach ($newData as $data) {
+                fputcsv($file, $data);
+            }
+
+            ftruncate($file, ftell($file));
+        }
+
+        fclose($file);
+        return $updated;
     }
-    fclose($file);
-    return $deleted;
+
+    public function deleteTeamMember($teamMemberName) {
+        $file = fopen($this->file, "r+");
+        $headers = fgetcsv($file); // Skip headers
+        $deleted = false;
+        $newData = [];
+
+        while (($data = fgetcsv($file)) !== false) {
+            $teamMember = array_combine($headers, $data);
+            if ($teamMember['Team member'] == $teamMemberName) {
+                $deleted = true;
+            } else {
+                $newData[] = $teamMember;
+            }
+        }
+
+        if ($deleted) {
+            rewind($file);
+            fputcsv($file, $headers);
+
+            foreach ($newData as $data) {
+                fputcsv($file, $data);
+            }
+
+            ftruncate($file, ftell($file));
+        }
+
+        fclose($file);
+        return $deleted;
+    }
 }
 ?>

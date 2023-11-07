@@ -3,7 +3,8 @@ require 'team.php';
 
 if (isset($_GET['team_member'])) {
     $teamMemberName = $_GET['team_member'];
-    $teamMember = getTeamMember($teamMemberName);
+    $teamManager = new TeamManager('.../.../lib/team.csv'); // Specify the correct path to your CSV file
+    $teamMember = $teamManager->getTeamMember($teamMemberName);
 
     if ($teamMember) {
         echo '<h1>' . $teamMember['Team member'] . '</h1>';
