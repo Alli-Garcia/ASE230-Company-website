@@ -1,10 +1,10 @@
 <?php
-// Include the contacts.php file
 include_once 'contacts.php';
 
-// Retrieve all contact requests
-$contactRequests = getContactRequests();
 
+$contactManager = new ContactManager('02/data/realtors.json'); 
+
+$contactRequests = $contactManager->index();
 ?>
 
 <!DOCTYPE html>

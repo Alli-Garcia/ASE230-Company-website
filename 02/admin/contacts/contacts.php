@@ -1,67 +1,67 @@
 <?php
+class ContactManager {
+    private $filePath;
 
-function getContactRequests() {
-    $filePath = '../../data/realtors.json';
-
-    // Check if the file exists
-    if (!file_exists($filePath)) {
-        return []; // Return an empty array if the file doesn't exist
+    public function __construct($filePath) {
+        $this->filePath = $filePath;
     }
 
-    // Read the content of the JSON file
-    $jsonContent = file_get_contents($filePath);
+    public function getContactRequests() {
+        // Check if the file exists
+        if (!file_exists($this->filePath)) {
+            return []; // Return an empty array if the file doesn't exist
+        }
 
-    // Decode the JSON content into an associative array
-    $data = json_decode($jsonContent, true);
+        // Read the content of the JSON file
+        $jsonContent = file_get_contents($this->filePath);
 
-    // Check if the 'realtors' key exists in the decoded data
-    if (isset($data['realtors'])) {
-        return $data['realtors'];
-    } else {
-        return []; // Return an empty array if the 'realtors' key is not found
+        // Decode the JSON content into an associative array
+        $data = json_decode($jsonContent, true);
+
+        // Check if the 'realtors' key exists in the decoded data
+        if (isset($data['realtors'])) {
+            return $data['realtors'];
+        } else {
+            return []; // Return an empty array if the 'realtors' key is not found
+        }
     }
-}
 
-function index() {
-    $contactRequests = getContactRequests();
-    return $contactRequests;
-}
+    public function index() {
+        $contactRequests = $this->getContactRequests();
+        return $contactRequests;
+    }
 
-function detail($index) {
-    $contactRequests = getContactRequests();
-    return isset($contactRequests[$index]) ? $contactRequests[$index] : null;
-}
+    public function detail($index) {
+        $contactRequests = $this->getContactRequests();
+        return isset($contactRequests[$index]) ? $contactRequests[$index] : null;
+    }
 
-
-function create($product) {
-    $file = '../../data/realtors.json';
-    $data = file_get_contents($file);
-    $dataArray = json_decode($data, TRUE);
-    array_push($dataArray, $product);
-    $data = json_encode($dataArray, JSON_UNESCAPED_UNICODE);
-    file_put_contents($file, $data);
-}
-
-function edit($index, $product) {
-    $file = '../../data/realtors.json';
-    $data = file_get_contents($file);
-    $dataArray = json_decode($data, TRUE);
-    $dataArray[$index] = $product;
-    $data = json_encode($dataArray, JSON_UNESCAPED_UNICODE);
-    file_put_contents($file, $data);
-}
-
-function delete($index) {
-    $file = '../../data/realtors.json';
-    $data = file_get_contents($file);
-    $dataArray = json_decode($data, TRUE);
-    
-    if (isset($dataArray[$index])) {
-        unset($dataArray[$index]);
-        $dataArray = array_values($dataArray); // Reindex the array
+    public function create($product) {
+        $data = file_get_contents($this->filePath);
+        $dataArray = json_decode($data, true);
+        array_push($dataArray, $product);
         $data = json_encode($dataArray, JSON_UNESCAPED_UNICODE);
-        file_put_contents($file, $data);
+        file_put_contents($this->filePath, $data);
+    }
+
+    public function edit($index, $product) {
+        $data = file_get_contents($this->filePath);
+        $dataArray = json_decode($data, true);
+        $dataArray[$index] = $product;
+        $data = json_encode($dataArray, JSON_UNESCAPED_UNICODE);
+        file_put_contents($this->filePath, $data);
+    }
+
+    public function delete($index) {
+        $data = file_get_contents($this->filePath);
+        $dataArray = json_decode($data, true);
+        
+        if (isset($dataArray[$index])) {
+            unset($dataArray[$index]);
+            $dataArray = array_values($dataArray); // Reindex the array
+            $data = json_encode($dataArray, JSON_UNESCAPED_UNICODE);
+            file_put_contents($this->filePath, $data);
+        }
     }
 }
-
 ?>
