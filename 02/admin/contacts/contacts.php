@@ -6,7 +6,7 @@ class ContactManager {
         $this->filePath = $filePath;
     }
 
-    public function getContactRequests() {
+    public function loadContactRequests() {
         // Check if the file exists
         if (!file_exists($this->filePath)) {
             return []; // Return an empty array if the file doesn't exist
@@ -14,6 +14,8 @@ class ContactManager {
 
         // Read the content of the JSON file
         $jsonContent = file_get_contents($this->filePath);
+
+        var_dump($jsonContent);
 
         // Decode the JSON content into an associative array
         $data = json_decode($jsonContent, true);
@@ -27,12 +29,12 @@ class ContactManager {
     }
 
     public function index() {
-        $contactRequests = $this->getContactRequests();
+        $contactRequests = $this->loadContactRequests();
         return $contactRequests;
     }
 
     public function detail($index) {
-        $contactRequests = $this->getContactRequests();
+        $contactRequests = $this->loadContactRequests();
         return isset($contactRequests[$index]) ? $contactRequests[$index] : null;
     }
 

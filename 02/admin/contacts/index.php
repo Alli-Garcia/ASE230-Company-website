@@ -2,7 +2,7 @@
 include_once 'contacts.php';
 
 
-$contactManager = new ContactManager('02/data/realtors.json'); 
+$contactManager = new ContactManager('../.../data/realtors.json'); 
 
 $contactRequests = $contactManager->index();
 ?>

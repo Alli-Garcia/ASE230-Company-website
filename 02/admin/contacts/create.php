@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Add other fields as needed
     ];
 
-    $contactManager = new ContactManager('path_to_realtors.json'); // Replace 'path_to_realtors.json' with the actual file path
+    $contactManager = new ContactManager('../.../data/realtors.json'); // Replace 'path_to_realtors.json' with the actual file path
     $contactManager->create($newContact);
 
     // Redirect to the index page after creating a new contact request
