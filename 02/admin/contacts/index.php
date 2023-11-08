@@ -2,7 +2,7 @@
 include_once 'contacts.php';
 
 
-$contactManager = new ContactManager('../.../data/realtors.json'); 
+$contactManager = new ContactManager('../../data/realtors.json'); 
 
 $contactRequests = $contactManager->index();
 ?>
@@ -27,8 +27,9 @@ $contactRequests = $contactManager->index();
             <th>Email</th>
             <th>Bio</th>
         </tr>
-        <?php foreach ($contactRequests as $index => $request): ?>
+        <?php foreach ($contactRequests as $key => $request): ?>
             <tr>
+                <td>td testing</td>
                 <td><?php echo $request['id']; ?></td>
                 <td><?php echo $request['name']; ?></td>
                 <td><?php echo $request['email']; ?></td>
@@ -36,6 +37,7 @@ $contactRequests = $contactManager->index();
                 <td>
                     <a href="detail.php?id=<?php echo $request['id']; ?>">View Details</a>
                 </td>
+                
             </tr>
         <?php endforeach; ?>
     </table>

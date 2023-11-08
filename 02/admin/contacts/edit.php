@@ -4,7 +4,7 @@ include_once 'contacts.php';
 
 // Check if ID is provided in the URL
 if (isset($_GET['id'])) {
-    $contactManager = new ContactManager('../.../data/realtors.json'); // Replace 'path_to_realtors.json' with the actual file path
+    $contactManager = new ContactManager('../../data/realtors.json'); // Replace 'path_to_realtors.json' with the actual file path
 
     // Retrieve the details of the specific contact request using the ContactManager instance
     $contactRequest = $contactManager->detail($_GET['id']);

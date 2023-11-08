@@ -3,7 +3,7 @@
 include_once 'contacts.php';
 
 if (isset($_GET['id'])) {
-    $contactManager = new ContactManager('../.../data/realtors.json'); // Replace 'path_to_realtors.json' with the actual file path
+    $contactManager = new ContactManager('../../data/realtors.json'); // Replace 'path_to_realtors.json' with the actual file path
     $contactId = $_GET['id'];
     $deleted = $contactManager->delete($contactId);
 

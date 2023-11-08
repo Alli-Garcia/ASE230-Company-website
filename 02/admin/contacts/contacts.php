@@ -1,6 +1,6 @@
 <?php
 class ContactManager {
-    private $filePath;
+    public $filePath;
 
     public function __construct($filePath) {
         $this->filePath = $filePath;
@@ -9,7 +9,11 @@ class ContactManager {
     public function loadContactRequests() {
         // Check if the file exists
         if (!file_exists($this->filePath)) {
-            return []; // Return an empty array if the file doesn't exist
+            echo "Error, can't display information"; // Return an empty array if the file doesn't exist
+        }
+        else {
+            echo "Found filepath";
+            echo filePath;
         }
 
         // Read the content of the JSON file
@@ -24,7 +28,7 @@ class ContactManager {
         if (isset($data['realtors'])) {
             return $data['realtors'];
         } else {
-            return []; // Return an empty array if the 'realtors' key is not found
+            return ["this is an array"]; // Return an empty array if the 'realtors' key is not found
         }
     }
 
