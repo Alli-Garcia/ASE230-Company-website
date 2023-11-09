@@ -11,15 +11,9 @@ class ContactManager {
         if (!file_exists($this->filePath)) {
             echo "Error, can't display information"; // Return an empty array if the file doesn't exist
         }
-        else {
-            echo "Found filepath";
-            echo filePath;
-        }
 
         // Read the content of the JSON file
         $jsonContent = file_get_contents($this->filePath);
-
-        var_dump($jsonContent);
 
         // Decode the JSON content into an associative array
         $data = json_decode($jsonContent, true);
