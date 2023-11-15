@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-11-15T04:03:05.500Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36" etag="MIhtamQ-pDIdiREBqTYR" version="22.1.1" type="github">
+<mxfile host="app.diagrams.net" modified="2023-11-15T04:05:05.183Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36" etag="KKWNw6IqaVhgpqjBtwpW" version="22.1.1" type="github">
   <diagram id="R2lEEEUBdFMjLlhIrx00" name="Page-1">
     <mxGraphModel dx="1747" dy="915" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0" extFonts="Permanent Marker^https://fonts.googleapis.com/css?family=Permanent+Marker">
       <root>
@@ -297,6 +297,15 @@
         </mxCell>
         <mxCell id="7FjITF15AZbaX3Ufhiyo-3" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="100" y="680" width="250" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="7FjITF15AZbaX3Ufhiyo-4" value="Date Date listed&lt;br&gt;String description&lt;br&gt;String status" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="140" y="695" width="170" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="7FjITF15AZbaX3Ufhiyo-5" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="150" width="250" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="7FjITF15AZbaX3Ufhiyo-6" value="String comment text&lt;br&gt;Date Date posted" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="130" y="165" width="180" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
