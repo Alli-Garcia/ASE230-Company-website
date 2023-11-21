@@ -1,30 +1,41 @@
 <?php
-// TODO: 
-// create a form where the fields are poulated with the values from ../../data/team.csv chosen
-// when the form is submitted, the values are updated in ../../data/team.csv
-// the user is redirected to index.php
-// make a "save changes button" that submits the form
+require('db.php');
+
 require('team.php');
 
 // Get index of the item to edit
 $index = $_GET['index'];
 
-// Load current team data from ../../data/team.csv
-$teamMembers = array_map('str_getcsv', file('../../data/team.csv'));
-array_walk($teamMembers, function (&$a) use ($teamMembers) {
-    $a = array_combine($teamMembers[0], $a);
-});
-array_shift($teamMembers);
+
+// Create TeamManager instance with PDO
+$teamManager = new TeamManager($pdo);
 
 // Get item to edit
-$item = $teamMembers[$index];
+$item = $teamManager->getTeamMemberById($index); // Assuming you have a method to fetch a team member by ID
+
+// Handle form submission
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Get the updated data from the form
+    $updatedData = [
+        'Team member' => $_POST['team_member'],
+        'Role' => $_POST['role'],
+        'Bio' => $_POST['bio'],
+    ];
+
+    // Update the team member in the MySQL database
+    $teamManager->updateTeamMemberById($index, $updatedData); // Assuming you have a method to update a team member by ID
+
+    // Redirect to index.php
+    header('Location: index.php');
+    exit;
+}
 
 // Display a form with current item data to user
-echo '<form method="post" action="save.php">';
-echo 'Team member: <input type="text" name="team_member" value="' . $item['team member'] . '"><br>';
-echo 'Role: <input type="text" name="role" value="' . $item['role'] . '"><br>';
-echo 'Bio: <textarea name="bio">' . $item['bio'] . '</textarea><br>';
+echo '<form method="post" action="">'; // The action is empty to submit the form to the same page
+echo 'Team member: <input type="text" name="team_member" value="' . $item['Team member'] . '"><br>';
+echo 'Role: <input type="text" name="role" value="' . $item['Role'] . '"><br>';
+echo 'Bio: <textarea name="bio">' . $item['Bio'] . '</textarea><br>';
 echo '<input type="hidden" name="index" value="' . $index . '">';
-echo '<input type="button" value="Save changes" onclick="this.form.submit()">';
+echo '<input type="submit" value="Save changes">';
 echo '</form>';
 ?>

@@ -1,15 +1,19 @@
 <?php
+
+require 'db.php';
 require 'team.php';
 
 if (isset($_GET['team_member'])) {
     $teamMemberName = $_GET['team_member'];
-    $teamManager = new TeamManager('.../.../lib/team.csv'); // Specify the correct path to your CSV file
+    
+
+    $teamManager = new TeamManager($pdo);
     $teamMember = $teamManager->getTeamMember($teamMemberName);
 
     if ($teamMember) {
         echo '<h1>' . $teamMember['Team member'] . '</h1>';
         echo '<p>' . $teamMember['Role'] . '</p>';
-        echo '<p>' . $teamMember['Bio'] . '</p';
+        echo '<p>' . $teamMember['Bio'] . '</p>';
 
         // Add any additional information you want to display
     } else {

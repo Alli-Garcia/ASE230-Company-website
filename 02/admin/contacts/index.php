@@ -33,7 +33,7 @@ $contactRequests = $contactManager->index();
                 <td><?php echo $request['id']; ?></td>
                 <td><?php echo $request['name']; ?></td>
                 <td><?php echo $request['email']; ?></td>
-                <td><?php echo $request['bio']; ?></td>
+                
                 <td>
                     <a href="detail.php?id=<?php echo $request['id']; ?>">View Details</a>
                 </td>

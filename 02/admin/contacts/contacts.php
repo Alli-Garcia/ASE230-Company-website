@@ -22,13 +22,13 @@ class ContactManager {
     }
 
     public function create($contactRequest) {
-        $stmt = $this->pdo->prepare('INSERT INTO ContactRequests (name, email, message) VALUES (?, ?, ?)');
-        $stmt->execute([$contactRequest['name'], $contactRequest['email'], $contactRequest['message']]);
+        $stmt = $this->pdo->prepare('INSERT INTO ContactRequests (name, email) VALUES (?, ?, ?)');
+        $stmt->execute($contactRequest['name'], $contactRequest['email']);
     }
 
     public function edit($id, $contactRequest) {
-        $stmt = $this->pdo->prepare('UPDATE ContactRequests SET name=?, email=?, message=? WHERE id=?');
-        $stmt->execute([$contactRequest['name'], $contactRequest['email'], $contactRequest['message'], $id]);
+        $stmt = $this->pdo->prepare('UPDATE ContactRequests SET name=?, email=? WHERE id=?');
+        $stmt->execute([$contactRequest['name'], $contactRequest['email'], $id]);
     }
 
     public function delete($id) {

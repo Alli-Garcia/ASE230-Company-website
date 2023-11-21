@@ -1,107 +1,37 @@
-<?php 
+<?php
 class TeamManager {
-    private $file;
+    private $pdo;
 
-    public function __construct($file) {
-        $this->file = $file;
+    public function __construct(PDO $pdo) {
+        $this->pdo = $pdo;
     }
 
     public function getTeamMembers() {
-        $teamMembers = [];
-        $fp = fopen($this->file, 'r');
-        $headers = fgetcsv($fp);
-
-        while (($data = fgetcsv($fp)) !== false) {
-            $teamMember = array_combine($headers, $data);
-            $teamMembers[] = $teamMember;
-        }
-
-        fclose($fp);
-        return $teamMembers;
+        $stmt = $this->pdo->query('SELECT * FROM Team');
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function getTeamMember($teamMemberName) {
-        $teamMember = null;
-        $file = fopen($this->file, "r");
-        $headers = fgetcsv($file); // Skip headers
-
-        while (($data = fgetcsv($file)) !== false) {
-            $teamMember = array_combine($headers, $data);
-            if ($teamMember['Team member'] == $teamMemberName) {
-                fclose($file);
-                return $teamMember;
-            }
-        }
-
-        fclose($file);
-        return $teamMember;
+    public function getTeamMember($id) {
+        $stmt = $this->pdo->prepare('SELECT * FROM Team WHERE id = ?');
+        $stmt->execute([$id]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
     public function createTeamMember($teamMember) {
-        $file = fopen($this->file, "a");
-        fputcsv($file, $teamMember);
-        fclose($file);
+        $stmt = $this->pdo->prepare('INSERT INTO Team (team_member, role, bio) VALUES (?, ?, ?)');
+        $stmt->execute([$teamMember['Team member'], $teamMember['Role'], $teamMember['Bio']]);
     }
 
-    public function updateTeamMember($teamMemberName, $updatedTeamMember) {
-        $file = fopen($this->file, "r+");
-        $headers = fgetcsv($file); // Skip headers
-        $updated = false;
-        $newData = [];
-
-        while (($data = fgetcsv($file)) !== false) {
-            $teamMember = array_combine($headers, $data);
-            if ($teamMember['Team member'] == $teamMemberName) {
-                $newData[] = $updatedTeamMember;
-                $updated = true;
-            } else {
-                $newData[] = $teamMember;
-            }
-        }
-
-        if ($updated) {
-            rewind($file);
-            fputcsv($file, $headers);
-
-            foreach ($newData as $data) {
-                fputcsv($file, $data);
-            }
-
-            ftruncate($file, ftell($file));
-        }
-
-        fclose($file);
-        return $updated;
+    public function updateTeamMember($id, $updatedTeamMember) {
+        $stmt = $this->pdo->prepare('UPDATE Team SET team_member=?, role=?, bio=? WHERE id=?');
+        $stmt->execute([$updatedTeamMember['Team member'], $updatedTeamMember['Role'], $updatedTeamMember['Bio'], $id]);
+        return $stmt->rowCount() > 0;
     }
 
-    public function deleteTeamMember($teamMemberName) {
-        $file = fopen($this->file, "r+");
-        $headers = fgetcsv($file); // Skip headers
-        $deleted = false;
-        $newData = [];
-
-        while (($data = fgetcsv($file)) !== false) {
-            $teamMember = array_combine($headers, $data);
-            if ($teamMember['Team member'] == $teamMemberName) {
-                $deleted = true;
-            } else {
-                $newData[] = $teamMember;
-            }
-        }
-
-        if ($deleted) {
-            rewind($file);
-            fputcsv($file, $headers);
-
-            foreach ($newData as $data) {
-                fputcsv($file, $data);
-            }
-
-            ftruncate($file, ftell($file));
-        }
-
-        fclose($file);
-        return $deleted;
+    public function deleteTeamMember($id) {
+        $stmt = $this->pdo->prepare('DELETE FROM Team WHERE id=?');
+        $stmt->execute([$id]);
+        return $stmt->rowCount() > 0;
     }
 }
 ?>

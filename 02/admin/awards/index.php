@@ -35,7 +35,8 @@ $i++;
 
 ?>
 </form>
-    <form action="../awards/create.php">
+<form method="get" action="../awards/create.php">
+
 	<button class="btn btn-lg btn-outline-dark btn-success " name="create" type="submit">Create</button>
 </form>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
