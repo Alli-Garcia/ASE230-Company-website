@@ -1,7 +1,10 @@
 <?php
 // Include the contacts.php file
+include_once 'db.php';
 include_once 'contacts.php';
 
+$contactManager = new ContactManager($pdo);
+$contactManager->create($newContact);
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Process the form data for creating a new contact request
     $newContact = [

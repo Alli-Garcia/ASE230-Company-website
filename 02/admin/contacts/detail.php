@@ -1,6 +1,9 @@
 <?php
 // Include the contacts.php file
+include_once 'db.php';
 include_once 'contacts.php';
+$contactManager = new ContactManager($pdo);
+$contactRequest = $contactManager->detail($id);
 
 // Check if ID is provided in the URL
 if (isset($_GET['id'])) {

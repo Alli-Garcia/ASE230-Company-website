@@ -1,9 +1,9 @@
 <?php
+
+include_once 'db.php';
 include_once 'contacts.php';
 
-
-$contactManager = new ContactManager('../../data/realtors.json'); 
-
+$contactManager = new ContactManager($pdo);
 $contactRequests = $contactManager->index();
 ?>
 
