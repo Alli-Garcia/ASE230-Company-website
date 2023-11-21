@@ -4,7 +4,8 @@ include_once 'db.php';
 include_once 'contacts.php';
 
 $contactManager = new ContactManager($pdo);
-$contactManager->create($newContact);
+
+// Check if the form is submitted
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Process the form data for creating a new contact request
     $newContact = [
@@ -13,11 +14,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Add other fields as needed
     ];
 
-    $contactManager = new ContactManager('../../data/realtors.json'); // Replace 'path_to_realtors.json' with the actual file path
+    // Create a new contact request using the ContactManager instance
     $contactManager->create($newContact);
 
     // Redirect to the index page after creating a new contact request
     header("Location: index.php");
+    exit(); 
 }
 ?>
 
@@ -40,7 +42,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <label for="email">Email:</label>
             <input type="email" class="form-control" id="email" name="email" required>
         </div>
-        <!-- Add other form fields as needed -->
         <button type="submit" class="btn btn-primary">Create Request</button>
     </form>
 </body>

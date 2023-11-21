@@ -5,12 +5,8 @@ include_once 'contacts.php';
 
 $contactManager = new ContactManager($pdo);
 
-$contactRequests = $contactManager->index();
-
 // Check if ID is provided in the URL
 if (isset($_GET['id'])) {
-    $contactManager = new ContactManager('../../data/realtors.json'); // Replace 'path_to_realtors.json' with the actual file path
-
     // Retrieve the details of the specific contact request using the ContactManager instance
     $contactRequest = $contactManager->detail($_GET['id']);
 
@@ -28,6 +24,7 @@ if (isset($_GET['id'])) {
 
             // Redirect to the detail page after editing
             header("Location: detail.php?id=" . $_GET['id']);
+            exit(); // Make sure to exit after redirection
         }
 
         ?>
