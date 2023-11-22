@@ -1,5 +1,9 @@
 <?php
+
+require __DIR__ . '/db.php';
 require __DIR__ . '/team.php';
+
+$teamManager = new TeamManager($pdo);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -9,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $bio = $_POST['bio'];
 
     // Save new team member to the MySQL database
-    $teamManager = new TeamManager($pdo);
+    
     $teamManager->createTeamMember(['Team member' => $name, 'Role' => $role, 'Bio' => $bio]);
 
     // Redirect to the index
