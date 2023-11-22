@@ -25,7 +25,6 @@ $contactRequests = $contactManager->index();
             <th>ID</th>
             <th>Name</th>
             <th>Email</th>
-            <th>Bio</th>
         </tr>
         <?php foreach ($contactRequests as $key => $request): ?>
             <tr>

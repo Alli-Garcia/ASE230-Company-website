@@ -9,6 +9,7 @@ $contactManager = new ContactManager($pdo);
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Process the form data for creating a new contact request
     $newContact = [
+        'id' => $_POST['id'],
         'name' => $_POST['name'],
         'email' => $_POST['email'],
         // Add other fields as needed

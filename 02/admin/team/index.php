@@ -30,7 +30,7 @@ $teamMembers = $teamManager->getTeamMembers();
 
         <input type="hidden" name="selected_team_member_index" id="selected_team_member_index" value="">
     </form>
-
+ 
     <script>
         const buttons = document.querySelectorAll('button[name="team_member_index"]');
         const selectedTeamMemberIndexInput = document.getElementById('selected_team_member_index');

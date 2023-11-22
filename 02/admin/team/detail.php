@@ -1,23 +1,49 @@
+<!-- detail.php -->
+
 <?php
+require('db.php');
+require('team.php');
 
-require 'db.php';
-require 'team.php';
+$teamManager = new TeamManager($pdo);
 
-if (isset($_GET['team_member'])) {
-    $teamMemberName = $_GET['team_member'];
-    
+// Check if ID is provided in the URL
+if (isset($_GET['id'])) {
+    $teamMemberId = $_GET['id'];
 
-    $teamManager = new TeamManager($pdo);
-    $teamMember = $teamManager->getTeamMember($teamMemberName);
+    // Retrieve the details of the specific team member using the TeamManager instance
+    $teamMember = $teamManager->getTeamMemberById($teamMemberId);
 
     if ($teamMember) {
-        echo '<h1>' . $teamMember['Team member'] . '</h1>';
-        echo '<p>' . $teamMember['Role'] . '</p>';
-        echo '<p>' . $teamMember['Bio'] . '</p>';
+        ?>
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Team Member Details</title>
+            <!-- Add your CSS styles or include Bootstrap if needed -->
+        </head>
+        <body>
+            <h1>Team Member Details</h1>
+            <p>ID: <?php echo $teamMember['id']; ?></p>
+            <p>Name: <?php echo $teamMember['team_member']; ?></p>
+            <p>Role: <?php echo $teamMember['role']; ?></p>
+            <p>Bio: <?php echo $teamMember['bio']; ?></p>
+            <!-- Display other details as needed -->
 
-        // Add any additional information you want to display
+            <!-- Add a delete button -->
+            <form method="post" action="delete.php">
+                <input type="hidden" name="id" value="<?php echo $teamMember['id']; ?>">
+                <input type="hidden" name="confirm" value="yes">
+                <button type="submit">Delete</button>
+            </form>
+        </body>
+        </html>
+        <?php
     } else {
-        echo '<p>Team member not found.</p>';
+        echo 'Team member not found.';
     }
+} else {
+    echo 'ID parameter not provided.';
 }
 ?>
