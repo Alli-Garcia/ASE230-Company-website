@@ -1,45 +1,57 @@
 <?php
-//the file lists all the available items in a table. Clicking on an item will take the user to the detail page described below.
-//Also, the page contains a "create" button that enables you to go to the create page described below.
 require __DIR__ . '/db.php';
 require __DIR__ . '/awards.php';
 
-$awards = index();
+// Create an instance of AwardManager
+$awardManager = new AwardManager($pdo);
 
+// Check if the 'id' parameter is present in the URL
+if (isset($_GET['id'])) {
+    // Assuming you have a method edit() to retrieve an award by ID
+    $id = $_GET['id'];
+    
+    // Retrieve the award by ID
+    $award = $awardManager->edit($id);
 
+    // Check if the award exists
+    if ($award !== false) {
+        $awards = [$award]; // Place the result in an array to match the structure of the index method
+    } else {
+        // Handle the case where the award does not exist
+        echo "Error: Award not found.";
+        exit(); // Optionally, you can redirect the user to another page
+    }
+} else {
+    // Call the index method to get the awards
+    $awards = $awardManager->index();
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <title>Awards-Index</title>
+    <!-- Add your HTML head content here -->
 </head>
-
 <body>
-<form method = "post" action="../awards/detail.php" >
+    <!-- Display the list of awards or a specific award based on the 'id' parameter -->
+    <form method="post" action="index.php">
+        <?php
+        $i = 0;
+        foreach ($awards as $award) {
+            ?>
+            <button class="btn btn-lg btn-outline-dark btn-primary" name="award" type="submit" value="<?php echo $i; ?>"><?php echo $award['description']; ?></button><br>
+            <?php
+            $i++;
+        }
+        ?>
+    </form>
 
-<?php
-$i=0;
-foreach ($awards as $award){
-?>
+    <form method="post" action="create.php">
+        <!-- Add form fields here for the new award -->
+        <button class="btn btn-lg btn-outline-dark btn-primary" type="submit" name="submit">Create</button><br />
+    </form>
 
-<button class="btn btn-lg btn-outline-dark btn-primary" name="award" type="submit" value="<?php echo $i; ?>"> <?php echo $award[0] ?></button></br>
+    <!-- Add your scripts or additional HTML content here -->
 
-<?php
-$i++;
-} 
-
-
-?>
-</form>
-<form method="get" action="../awards/create.php">
-
-	<button class="btn btn-lg btn-outline-dark btn-success " name="create" type="submit">Create</button>
-</form>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>
-

@@ -14,17 +14,19 @@ class AwardManager {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function create() {
+    public function create($year, $description) {
         $stmt = $this->pdo->prepare('INSERT INTO awards (year, description) VALUES (?, ?)');
-        $stmt->execute(['Place', 'holder']); // Modify this as needed
+        $stmt->execute([$year, $description]);
         return $this->pdo->lastInsertId();
     }
+    
 
     public function edit($id) {
         $stmt = $this->pdo->prepare('SELECT * FROM awards WHERE id = ?');
         $stmt->execute([$id]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
+    
 
     public function detail($id) {
         $stmt = $this->pdo->prepare('SELECT description FROM awards WHERE id = ?');
