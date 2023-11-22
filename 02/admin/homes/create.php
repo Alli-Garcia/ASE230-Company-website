@@ -4,7 +4,10 @@
 </head>
 
 <?php
-require('homes.php');
+require_once('db.php'); // Assuming you have a file with database connection code
+require_once('homes.php');
+
+$pdo = getPdo(); // Use your function to get the PDO instance
 ?>
 
 <form method='post'>
@@ -25,11 +28,21 @@ require('homes.php');
 
 <?php
 
-if (array_key_exists('submitButton', $_POST)){
-    $newHome = array('address' => $_POST['addressInput'], 'city' => $_POST['cityInput'], 'state' => $_POST['stateInput'], 'zipcode' => $_POST['zipcodeInput'], 'image' => $_POST['imageInput']);
-    create($newHome);
-    
+if (isset($_POST['submitButton'])) {
+    $newHome = array(
+        'address' => $_POST['addressInput'],
+        'city' => $_POST['cityInput'],
+        'state' => $_POST['stateInput'],
+        'zipcode' => $_POST['zipcodeInput'],
+        'image' => $_POST['imageInput']
+    );
+
+    // Assuming you have a create function in your HomesManager class
+    $homesManager = new HomesManager($pdo);
+    $homesManager->create($newHome);
+
     header('Location: index.php');
+    exit();
 }
 ?>
 

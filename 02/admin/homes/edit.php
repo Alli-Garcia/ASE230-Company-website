@@ -6,7 +6,22 @@
 <?php
 require('homes.php');
 
-$home = detail($_GET['home']);
+// Check if the 'home' parameter is set
+if (!isset($_GET['home'])) {
+    echo "Invalid request. Please provide a home ID.";
+    exit;
+}
+
+$homeId = $_GET['home'];
+
+// Get the details of the home based on the ID
+$home = detail($homeId);
+
+// Check if the home details are retrieved successfully
+if (!$home) {
+    echo "Home not found.";
+    exit;
+}
 ?>
 
 <form method='post'>
@@ -27,13 +42,24 @@ $home = detail($_GET['home']);
 
 <?php
 
-if (array_key_exists('submitButton', $_POST)){
-    $editedHome = array('address' => $_POST['addressInput'], 'city' => $_POST['cityInput'], 'state' => $_POST['stateInput'], 'zipcode' => $_POST['zipcodeInput'], 'image' => $_POST['imageInput']);
-    edit($_GET['home'], $editedHome);
-    header("Location: index.php");
-}
+// Check if the form is submitted
+if (isset($_POST['submitButton'])) {
+    $editedHome = array(
+        'address' => $_POST['addressInput'],
+        'city' => $_POST['cityInput'],
+        'state' => $_POST['stateInput'],
+        'zipcode' => $_POST['zipcodeInput'],
+        'image' => $_POST['imageInput']
+    );
 
-    ?>
+    // Edit the home details
+    edit($homeId, $editedHome);
+
+    // Redirect to the index page after editing
+    header("Location: index.php");
+    exit;
+}
+?>
 
 <script src="../../js/bootstrap.bundle.min.js"></script>
 <script src="../../js/smooth-scroll.polyfills.min.js"></script>

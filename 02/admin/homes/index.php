@@ -5,8 +5,9 @@
 
 <?php
 require('homes.php');
+require('db.php'); // Include your database connection file
 
-$homesManager = new HomesManager('../../data/homes.json');
+$homesManager = new HomesManager($pdo); // Assuming $pdo is your PDO instance for MySQL
 $homes = $homesManager->index();
 ?>
 
@@ -16,13 +17,11 @@ $homes = $homesManager->index();
             <th>Address</th>
         </tr>
         <?php
-            
-            for ($i = 0; $i < count($homes); $i++) {
+            foreach ($homes as $i => $home) {
                 echo '<tr>
-                        <td><a href="detail.php?home=' . $i . '">' . $homes[$i]['address'] .  '</a></td>
+                        <td><a href="detail.php?home=' . $home['id'] . '">' . $home['address'] .  '</a></td>
                     </tr>';
             }
-
         ?>
     </table>
     <button type='button' class='btn btn-primary mt-3' onclick='window.location.href="create.php"'>Create</button>
